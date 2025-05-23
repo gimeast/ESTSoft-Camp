@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>텍스트와 관련된 태그들</title>
+        <style>
+            .korean {
+                word-break: keep-all;
+            }
+
+            code {
+                color: blue;
+            }
+
+            mark {
+                background-color: lightgreen;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- p. 문단을 나타내는 블럭 요소 -->
+        <p>
+            프론트엔드 개발 관련 지식들
+            <img src="" alt="" />
+            <input type="text" />
+        </p>
+        <p>프론트엔드 개발 관련 지식들</p>
+        <p>
+            <!-- br. 의미있는 줄바꿈 -->
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            <br />Debitis, magnam ullam officiis repellat dolores quia placeat
+            cumque fugit repellendus molestiae modi hic reprehenderit voluptates
+            optio ipsum minus officia nostrum alias?
+            <!-- 아래와 같이 사용하지 않음 -->
+            <!-- 스타일 목적의 여백은 css를 사용 -->
+            <br /><br />
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            <!-- <p></p> -->
+            Fugit architecto repellat doloribus sapiente, quis odit quidem
+            voluptate adipisci delectus eos similique sit dignissimos vel.
+            Veritatis sunt ea quaerat esse velit?
+        </p>
+        <p>
+            <!-- wbr. 특정 줄바꿈 위치 제안 -->
+            This is a
+            veryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryvery<wbr />longwordthatwillbreakatspecific<wbr />placeswhenthebrowserwindowisresized.
+        </p>
+        <p class="korean">
+            이것은 브라우저창크기가조정될때특정위치에서깨지는
+            매우매우매우매우매우매우매우매우매우매우매우<wbr />매우매우매우매우매우매우매우매우매우매우매우매우매우<wbr />긴단어입니다.
+            후후후후후후후후
+        </p>
+        <!-- code. 짧은 코드조각 -->
+        <p>
+            자바스크립트에서 배열에 요소를 추가하려면 push()
+            <code>push()</code>메서드를 사용할 수 있습니다.
+        </p>
+        <pre>
+            : ¨·.·¨ :
+             ` ·. 🦋
+                    ╱|、
+                    (˚ˎ 。7
+                    |、˜〵
+                    じしˍ,)ノ
+
+                    ＼● ●＿＼● ＜●〉* ● *
+                    /> <│/∨│  * √1∨*
+                    <＼∠＼/> 〈〉 * /＼*
+                    ~ 앗싸~ 오늘도 활기차게 발랄하게~ 오예~~!!! ^^
+
+        </pre>
+        <p>안녕&nbsp;위니브&nbsp;안녕&nbsp;오르미6기</p>
+        <p>&copy;copyright</p>
+        <p>조심하세요! <strong>매우 위험합니다!</strong></p>
+        <!-- b. 과거에 굵은 글씨 처리를 위해 사용했던 태그. 사용하는것을 권장하지 않음 -->
+        <p>조심하세요! <b>매우 위험합니다!</b></p>
+        <!-- em. 텍스트 강조. 맥락에 따른 의미 변화 -->
+        <p><em>지지</em>가 출근을하지 않았어요!</p>
+        <p>지지가 <em>출근</em>을하지 않았어요!</p>
+        <p>
+            그녀는 속으로 <i>학생들이 수업을 열심히 듣고있네</i>라고
+            생각했습니다.
+        </p>
+        <p>
+            나는 어린 왕자 책에서 이 구절을 좋아해!
+            <q cite="https://example.com/article"
+                >만약 네가 오후 네 시에 온다면 난 세시부터 행복해질 거야</q
+            >
+        </p>
+        <figure>
+            <blockquote>
+                <p>
+                    "만약 네가 오후 네시에 온다면 난 세시부터 행복해질 거야.
+                    그리고 널 만날 시간이 가까워질수록 점점 더 행복해지겠지.
+                    네시가 되면, 흥분해서 안절부절 못할 거야. 그래서 행복이
+                    얼마나 값진 것인지를 알게 될 거야."
+                </p>
+            </blockquote>
+            <cite>— 어린왕자 여우의 말 중</cite>
+        </figure>
+        <footer>
+            <address>
+                전유진<br />
+                <a href="tel:+8201000000000">지지에게 연락하기</a><br />
+                구산로 58<br />
+                <a href="#">인스타그램 바로가기</a>
+            </address>
+        </footer>
+        <p>검색결과: <mark>결과 내용</mark></p>
+        <p>본문에서 <a href="#html-def">HTML</a>을 사용합니다.</p>
+        <p>
+            <span
+                >Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Accusantium alias animi consequuntur dignissimos, doloribus
+                eligendi et iste iure laborum magnam magni non numquam odit,
+                officia provident quaerat saepe, sed voluptas.</span
+            ><span
+                >Atque eaque est eum eveniet fuga magnam perferendis possimus
+                quisquam, reprehenderit sint! Accusamus ad aliquid amet impedit
+                iure iusto, laboriosam nam nisi quam reiciendis, saepe sed
+                voluptas. Hic, vel, vero?</span
+            ><span
+                >Autem beatae consequatur corporis dignissimos doloribus ducimus
+                eligendi esse explicabo facilis fuga impedit incidunt ipsum
+                minima, nemo neque nihil non nulla optio pariatur qui quibusdam
+                quisquam repellat reprehenderit veritatis voluptates!</span
+            ><span
+                >Aliquam blanditiis et harum hic laboriosam maxime modi nobis
+                officia officiis, quia rem repellat repellendus reprehenderit
+                sed veniam vero voluptas? Esse illum ipsum laboriosam maiores
+                porro quos repudiandae, tempore veniam?</span
+            ><span
+                >Ducimus ex laudantium odio porro quis quo temporibus. Aliquam
+                asperiores autem consequatur earum eius fuga inventore ipsum
+                labore laborum magni, nam odit quas quia ratione reiciendis
+                rerum velit veniam voluptate!</span
+            >
+        </p>
+        <p id="html-def">
+            <dfn title="웹 페이지의 구조를 정의하는 마크업 언어.">HTML</dfn>은
+            웹 개발의 기초입니다.
+        </p>
+        <p>
+            <abbr title="Hyper Text Markup Language"
+                >HTML은 웹 개발의 기초입니다.</abbr
+            >
+        </p>
+    </body>
+</html>
