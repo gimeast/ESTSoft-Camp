@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <dialog open>
+            <div>
+                <h2>로그인 또는 회원가입</h2>
+                <button aria-label="닫기"><img src="#" alt="" /></button>
+            </div>
+            <p>위니브에서 여러분의 궁금증을 해결하세요! :)</p>
+
+            <section>
+                <form action="" method="post">
+                    <div>
+                        <label for="username" class="sr-only">아이디</label>
+                        <input type="text" id="username" placeholder="아이디" />
+                    </div>
+
+                    <div>
+                        <label for="pwd" class="sr-only">비밀번호</label>
+                        <input
+                            type="password"
+                            id="pwd"
+                            placeholder="비밀번호"
+                        />
+                    </div>
+
+                    <div>
+                        <input
+                            type="checkbox"
+                            name="isChecked"
+                            id="isChecked"
+                        />
+                        <label for="isChecked">로그인 상태 유지</label>
+                    </div>
+
+                    <button type="submit">로그인</button>
+                </form>
+            </section>
+
+            <section>
+                <a href="#">회원가입</a>
+                <span aria-hidden="true">&nbsp;|&nbsp;</span>
+                <a href="#">아이디/비밀번호 찾기</a>
+            </section>
+
+            <p>또는</p>
+
+            <section>
+                <ul>
+                    <li>
+                        <a href="#">구글 계정으로 로그인</a>
+                    </li>
+                    <li>
+                        <a href="#">페이스북 계정으로 로그인</a>
+                    </li>
+                    <li>
+                        <a href="#">네이버 계정으로 로그인</a>
+                    </li>
+                    <li>
+                        <a href="#">카카오톡 계정으로 로그인</a>
+                    </li>
+                </ul>
+            </section>
+        </dialog>
+    </body>
+</html>
