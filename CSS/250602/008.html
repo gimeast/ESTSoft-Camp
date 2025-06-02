@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>nth-child</title>
+        <style>
+            /* 타입의 관계 없이 자손 요소 중 위치 기반으로 선택 */
+            div :nth-child(1) {
+                color: red;
+            }
+
+            /* div :nth-child(even) {
+                background-color: aquamarine;
+            } */
+
+            /* n은 0부터 들어감 */
+            div :nth-child(2n) {
+                background-color: aquamarine;
+            }
+
+            div :nth-child(2n + 1) {
+                background-color: cornflowerblue;
+            }
+
+            div :nth-child(-n + 3) {
+                font-size: 32px;
+            }
+
+            /* 타입의 관계 없이 3번째를 선택하는 거라 <p>두번째 문단</p>가 선택됨 */
+            div p:nth-child(3) {
+                background-color: crimson;
+            }
+
+            /* 형제 요소 중 동일한 타입 요소 사이 위치 기반으로 <p>두 번째 문단</p>가 선택됨 */
+            div p:nth-of-type(3) {
+                background-color: rgb(0, 255, 255);
+            }
+
+            /* 형제 중 유일하게 사용된 타입의 요소 선택 */
+            div :only-of-type {
+                color: blueviolet;
+            }
+
+            /* not을 이용한 특정 선택자를 제외한 요소 선택 */
+            ul li:not(:first-child) {
+                color: chocolate;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <p>첫 번째 문단</p>
+            <h2>첫 번째 제목</h2>
+            <p>두 번째 문단</p>
+            <p>세 번째 문단</p>
+            <span>lorem ipsum</span>
+        </div>
+
+        <ul>
+            <li>1번째 항목</li>
+            <li>2번째 항목</li>
+            <li>3번째 항목</li>
+            <li>4번째 항목</li>
+            <li>5번째 항목</li>
+        </ul>
+    </body>
+</html>

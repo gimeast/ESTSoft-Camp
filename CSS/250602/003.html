@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>CSS 적용하기</title>
+        <style>
+            * {
+                color: red;
+                font-size: 16px;
+                font-weight: 400;
+            }
+
+            h1 {
+                color: blue;
+            }
+
+            /* id 선택자, id 속성값은 html 페이지 내에서 유일해야함 */
+            #one {
+                color: green;
+            }
+
+            /* class 선택자, 하나의 요소에 여러 클래스 가능, 클래스 선택자 여러번 사용 가능.. 재사용성이 높음 */
+            .yellow {
+                color: yellow;
+            }
+            .blue {
+                background-color: blue;
+            }
+
+            /* 그룹선택자 */
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6 {
+                border: solid 5px skyblue;
+            }
+        </style>
+    </head>
+    <body>
+        <a href="#one">Move to One</a>
+        <h1>hello world</h1>
+        <h2>hello world</h2>
+        <h3 class="yellow blue">hello world</h3>
+        <h4 class="blue">hello world</h4>
+        <h5 class="yellow">hello world</h5>
+        <h6>hello world</h6>
+        <p id="one">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nisi
+            repellat debitis velit porro, dolorum at asperiores odit cum illum
+            ea tenetur adipisci nam harum, hic repellendus enim vero. Eum,
+            asperiores.
+        </p>
+    </body>
+</html>

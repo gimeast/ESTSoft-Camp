@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>구조적 가상 클래스 선택자 고급</title>
+        <style>
+            /*CSS 변수는 --로 시작하는 이름을 가지며, var() 함수를 사용하여 값을 참조할 수 있다.*/
+            /*CSS Variables(CSS 사용자 정의 속성)*/
+            :root {
+                --main-color: red;
+                --main-font-size: 24px;
+                --btn-padding: 4px 20px;
+            }
+
+            body {
+                color: var(--main-color);
+                font-size: var(--main-font-size);
+            }
+
+            button {
+                padding: var(--btn-padding);
+            }
+        </style>
+    </head>
+    <body>
+        <p>안녕하세요</p>
+        <button>로그인 버튼</button>
+        <div class="color1">
+            <p>안녕하세요</p>
+            <button>회원가입버튼</button>
+        </div>
+        <div class="color2">
+            <p>안녕하세요</p>
+            <button>비밀번호찾기버튼</button>
+        </div>
+    </body>
+</html>

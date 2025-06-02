@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>가상 요소</title>
+        <style>
+            p ::before {
+                content: "감기😷";
+                color: coral;
+                font-size: 24px;
+            }
+
+            p ::after {
+                content: "😪";
+            }
+
+            img {
+                width: 100px;
+            }
+
+            /* 아래 빈요소들은 가상 요소 적용 불가 */
+            img::before,
+            br::before,
+            input::before {
+                content: "가상 요소 추가";
+            }
+
+            input::placeholder,
+            textarea::placeholder {
+                color: hotpink;
+            }
+        </style>
+    </head>
+    <body>
+        <p>
+            <strong>주의!</strong>
+        </p>
+
+        <br />
+        <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUDuctscq32a4Mlv6nVJIH4IoQWT_h7qCyLg&s"
+            alt=""
+        />
+        <input type="text" placeholder="이름을 입력하세요." />
+        <textarea
+            name=""
+            id=""
+            placeholder="자기소개를 작성해주세요."
+        ></textarea>
+    </body>
+</html>

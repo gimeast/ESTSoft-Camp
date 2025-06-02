@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>CSS 상속</title>
+        <style>
+            /* 자손 */
+            section p {
+                font-size: 32px;
+            }
+
+            /* 직계 자식 */
+            section > p {
+                color: cornflowerblue;
+            }
+
+            /* 형제 */
+            section ~ p {
+                background-color: lime;
+            }
+
+            /* 인접 형제 */
+            section + p {
+                color: burlywood;
+            }
+        </style>
+    </head>
+    <body>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+
+        <section>
+            <div>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+            </div>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+        </section>
+
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+    </body>
+</html>

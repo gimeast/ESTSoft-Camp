@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            :root {
+                --color-white: white;
+                --color-gray: gray;
+                --color-red: red;
+                --color-orange: orange;
+                --color-yellow: yellow;
+                --color-greenyellow: greenyellow;
+                --color-cornflowerblue: cornflowerblue;
+                --color-blue: blue;
+                --color-mediumpurple: mediumpurple;
+                --color-purple: purple;
+                --border-style: 5px solid black;
+                --font-size: 10px;
+            }
+
+            span {
+                padding: 20px;
+                display: inline-block;
+            }
+
+            div span:nth-child(1) {
+                background-color: var(--color-red);
+            }
+            div span:nth-child(2) {
+                background-color: var(--color-orange);
+            }
+            div span:nth-child(3) {
+                background-color: var(--color-yellow);
+            }
+            div span:nth-child(4) {
+                background-color: var(--color-greenyellow);
+            }
+            div span:nth-child(5) {
+                background-color: var(--color-cornflowerblue);
+            }
+            div span:nth-child(6) {
+                background-color: var(--color-blue);
+            }
+            div span:nth-child(7) {
+                background-color: var(--color-mediumpurple);
+            }
+            div span:first-child,
+            div span:last-child {
+                border: var(--border-style);
+            }
+            div span:nth-child(2n) {
+                color: var(--color-white);
+            }
+
+            ul li::before {
+                content: "❤️";
+            }
+            ul li:first-child::before {
+                content: "🦊";
+            }
+
+            ul li::after {
+                font-size: var(--font-size);
+                color: var(--color-gray);
+            }
+            ul li:last-child::after {
+                content: "팀장";
+                color: var(--color-purple);
+            }
+            ul li:not(:last-child)::after {
+                content: "팀원";
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <span>빨강</span>
+            <span>주황</span>
+            <span>노랑</span>
+            <span>초록</span>
+            <span>파랑</span>
+            <span>남색</span>
+            <span>보라</span>
+        </div>
+
+        <ul>
+            <li>지지</li>
+            <li>로지</li>
+            <li>웨이드</li>
+            <li>하티</li>
+            <li>라이캣</li>
+            <li>뮤라</li>
+        </ul>
+    </body>
+</html>
