@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>텍스트 꾸미기</title>
+        <style>
+            p {
+                width: 300px;
+                border: solid 1px black;
+
+                /* 텍스트의 가로정렬 */
+                /* text-align: right; */
+                /* text-align: center; */
+                /* 가독성이 좋지 않아 권장하지 않음 */
+                /* text-align: justify; */
+
+                /* 텍스트의 시작부분 들여쓰기 설정 */
+                /* text-indent: 30px; */
+
+                /* 모든 문자 사이에서 줄바꿈 가능 */
+                word-break: break-all;
+                /* 단어 사이의 공백에서만 줄바꿈 가능 */
+                word-break: keep-all;
+            }
+
+            /* 요소의 크기를를 넘친 텍스트를 자름 */
+            .overflow-clip {
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: clip;
+            }
+
+            /* 요소의 크기를 넘친 텍스트 말줄임 처리 */
+            .ellipsis {
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+            }
+
+            .multi-ellipsis {
+                overflow: hidden;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 3;
+            }
+        </style>
+    </head>
+    <body>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia
+            consectetur quam sit consequatur aliquid corrupti voluptas omnis
+            iusto nobis consequuntur est accusantium cum, iure aliquam illo
+            possimus perspiciatis unde necessitatibus?
+        </p>
+        <p>
+            이것은 매우긴한글단어가있는텍스트입니다. 줄바꿈이 어떻게 처리되는지
+            확인해보세요.이것은 매우긴한글단어가있는텍스트입니다. 줄바꿈이
+            어떻게 처리되는지 확인해보세요.이것은
+            매우긴한글단어가있는텍스트입니다. 줄바꿈이 어떻게 처리되는지
+            확인해보세요.
+        </p>
+
+        <p class="overflow-clip">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quaerat
+            repellendus sint odio? Exercitationem tenetur rerum reprehenderit
+            laborum! Aut id voluptas amet enim minima. Ipsum adipisci fuga
+            tempora dignissimos perspiciatis quaerat?
+        </p>
+
+        <p class="ellipsis">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quaerat
+            repellendus sint odio? Exercitationem tenetur rerum reprehenderit
+            laborum! Aut id voluptas amet enim minima. Ipsum adipisci fuga
+            tempora dignissimos perspiciatis quaerat?
+        </p>
+        <p class="multi-ellipsis">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quaerat
+            repellendus sint odio? Exercitationem tenetur rerum reprehenderit
+            laborum! Aut id voluptas amet enim minima. Ipsum adipisci fuga
+            tempora dignissimos perspiciatis quaerat?
+        </p>
+    </body>
+</html>

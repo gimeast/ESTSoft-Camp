@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>텍스트 꾸미기</title>
+        <style>
+            p {
+                /* 행간 조절 1.5 ~ 2 사이가 가독성이 좋음 */
+                line-height: 2;
+                line-height: 20px;
+                /* 자간 조절 */
+                /* letter-spacing: 20px; */
+            }
+
+            span {
+                line-height: 2.5;
+                background-color: lightcoral;
+            }
+
+            span > span {
+                line-height: 1;
+                background-color: lightgreen;
+            }
+
+            span .baseline {
+                vertical-align: baseline;
+            }
+
+            span .top {
+                vertical-align: top;
+            }
+
+            span .text-top {
+                vertical-align: text-top;
+            }
+
+            span .text-bottom {
+                vertical-align: text-bottom;
+            }
+            p {
+                font-style: italic;
+            }
+        </style>
+    </head>
+    <body>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt
+            totam odit nesciunt voluptatem doloremque in aliquam aliquid unde
+            ratione neque dolorum, quam explicabo ut delectus error alias
+            consequatur non nemo? totam odit nesciunt voluptatem doloremque in
+            aliquam aliquid unde ratione neque dolorum, quam explicabo ut
+            delectus error alias consequatur non nemo?
+        </p>
+        <span>텍스트<span class="baseline">baseline</span></span>
+        <span>텍스트<span class="top">baseline</span></span>
+        <span>텍스트<span class="bottom">baseline</span></span>
+        <span>텍스트<span class="text-top">baseline</span></span>
+        <span>텍스트<span class="text-bottom">baseline</span></span>
+    </body>
+</html>

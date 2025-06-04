@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>단위</title>
+    <style>
+        /* 절대단위: 이미지를 표현하는 가장 작은 단위 */
+        .px {
+            width: 500px;
+            background-color: lightblue;
+        }
+
+        /* 부모 요소의 해당 속성 값을 기준 */
+        .percent {
+            width: 50%;
+            background-color: lightcoral;
+        }
+
+        /* 뷰포트의 너비 기준, 100vw = 브라우저 너비 */
+        .vw {
+            width: 50vw;
+            background-color: lightgray;
+        }
+        /* 뷰포트의 높이 기준, 100vh = 브라우저 높이 */
+        .vh {
+            height: 50vh;
+            background-color: lightgreen;
+        }
+
+        /* width와 height 중 더 작은 값을 기준으로 한다. */
+        .vmin {
+            width:50vmin;
+            background-color: lightpink;
+        }
+        /* width와 height 중 더 큰 값을 기준으로 한다. */
+        .vmax {
+            width:50vmax;
+            background-color: lightgreen;
+        }
+    </style>
+</head>
+<body>
+    <div class="px">
+        <strong>div width:500px;<strong>
+            <br>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil debitis ab laboriosam quibusdam adipisci nulla, iure, eligendi enim officia omnis quis saepe qui voluptatem optio alias earum vero molestiae minus.
+        </div>
+
+        <br>
+
+        <div class="px">
+            <strong>div width:500px;<strong>
+                <br>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil debitis ab laboriosam quibusdam adipisci nulla, iure, eligendi enim officia omnis quis saepe qui voluptatem optio alias earum vero molestiae minus.
+                <div class="percent">
+                    <strong>div width: 50%;</strong>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam nobis itaque voluptates qui incidunt tempore nesciunt, aperiam quidem accusantium similique adipisci id praesentium repudiandae tenetur suscipit commodi omnis repellendus blanditiis.
+                </div>
+            </div>
+
+            <br>
+
+            <div class="vw">
+                <strong>div width: 50vw;</strong>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi laborum quam libero explicabo exercitationem nemo hic voluptates eveniet incidunt modi ea temporibus natus doloremque ducimus accusantium nesciunt, id corrupti voluptas!
+            </div>
+
+            <br>
+
+            <div class="vh">
+                <strong>div height: 50vh;</strong>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi laborum quam libero explicabo exercitationem nemo hic voluptates eveniet incidunt modi ea temporibus natus doloremque ducimus accusantium nesciunt, id corrupti voluptas!
+            </div>
+            <div class="vmin">
+                <strong>div width: 50vmin;</strong>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis ducimus ut delectus nisi quaerat eos. Doloribus sapiente non quisquam, adipisci, amet vitae vero necessitatibus numquam, qui quasi voluptates aspernatur accusamus!
+            </div>
+            <div class="vmax">
+                <strong>div width: 50vmax;</strong>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis ducimus ut delectus nisi quaerat eos. Doloribus sapiente non quisquam, adipisci, amet vitae vero necessitatibus numquam, qui quasi voluptates aspernatur accusamus!
+            </div>
+</body>
+</html>
