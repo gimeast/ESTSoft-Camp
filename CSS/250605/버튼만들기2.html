@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>버튼만들기</title>
+        <style>
+            :root {
+                --white-color:#fff;
+                --btn-dark-shadow-color:#778592;
+                --btn-dark-background-color:#5d6973;
+                --btn-outline-border-color:#b0c4de;
+            }
+            button {
+                width: 70px;
+                height: 35px;
+                font-size: 12px;
+            }
+            .btn-dark {
+                border: 2px solid black;
+                box-shadow: inset 2px 2px 0 var(--btn-dark-shadow-color);
+                background-color: var(--btn-dark-background-color);
+                color: var(--white-color);
+            }
+            .btn-gradient {
+                background: linear-gradient(90deg, #6c57f2, #3d79f2);
+
+                border: 4px rgb(233, 224, 242) dashed;
+                border-radius: 20px;
+                background-clip: padding-box;
+
+                color: var(--white-color);
+            }
+            .btn-outline {
+                border: 2px solid var(--btn-outline-border-color);
+                border-radius: 0 20px 20px 20px;
+                background-color: var(--white-color);
+            }
+        </style>
+    </head>
+    <body>
+        <button class="btn-dark">Hello👋</button>
+        <button class="btn-gradient">Hello👋</button>
+        <button class="btn-outline">Hello👋</button>
+    </body>
+</html>

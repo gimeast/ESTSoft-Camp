@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>나만의 슬로건 만들기</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Dongle&family=Nanum+Brush+Script&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@100..900&display=swap"
+            rel="stylesheet"
+        />
+        <style>
+            .nanum-brush-script-regular {
+                font-family: "Nanum Brush Script", cursive;
+                font-weight: 400;
+                font-style: normal;
+            }
+            .background-img {
+                position: relative;
+                width: 100%;
+                max-width: 1000px;
+                aspect-ratio: 16/9;
+
+                background-image: url(./늦었다고생각할때가진짜너무늦었다.png);
+                background-size: contain;
+                background-repeat: no-repeat;
+            }
+            .text-container {
+                position: absolute;
+                bottom: 0;
+                left: 20%;
+            }
+            p {
+                color: lightcyan;
+                font-size: 50px;
+                line-height: 1em;
+                font-weight: 900;
+                text-shadow: 10px 10px 5px lightslategray;
+            }
+            .indent-px {
+                display: block;
+                margin-left: 6em;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="background-img">
+            <div class="text-container">
+                <p class="slogan nanum-brush-script-regular">
+                    늦었다고 생각할 때가
+                    <span class="indent-px">진짜 너무 늦었다.</span>
+                </p>
+            </div>
+        </div>
+    </body>
+</html>

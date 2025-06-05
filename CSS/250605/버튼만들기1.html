@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>버튼만들기</title>
+        <style>
+            :root {
+                --btn-default-text-color:#fff;
+                --btn-default-border-color:#1a202c;
+                --btn-default-background-color:#343f50;
+
+                --btn-normal-color:#cbd5df;
+                --btn-normal-disabled-color:#4a5568;
+                --btn-positive-color:#439aff;
+                --btn-negative-color:#eb5757;
+            }
+            button {
+                width: 88px;
+                height: 32px;
+                font-size: 12px;
+                font-weight: bold;
+                border: 1px solid var(--btn-default-border-color);
+                box-shadow: inset 2px 2px 0 rgba(255, 255, 255, 0.1);
+                background-color: var(--btn-default-background-color);
+            }
+
+            .normal {
+                color: var(--btn-normal-color);
+            }
+            .normal:hover {
+                color: var(--btn-default-text-color);
+                text-decoration-line: underline;
+            }
+            .normal:active {
+                box-shadow: inset 2px 2px 0 rgba(0, 0, 0, 0.2);
+            }
+            .normal:disabled {
+                color: var(--btn-normal-disabled-color);
+            }
+
+            .positive {
+                color: var(--btn-positive-color);
+            }
+            .positive:hover {
+                background-color: var(--btn-positive-color);
+                color: var(--btn-default-text-color);
+                text-decoration-line: underline;
+            }
+            .positive:active {
+                box-shadow: inset 2px 2px 0 rgba(0, 0, 0, 0.2);
+            }
+
+            .negative {
+                color: var(--btn-negative-color);
+            }
+            .negative:hover {
+                background-color: var(--btn-negative-color);
+                color: var(--btn-default-text-color);
+                text-decoration-line: underline;
+            }
+            .negative:active {
+                box-shadow: inset 2px 2px 0 rgba(0, 0, 0, 0.2);
+            }
+        </style>
+    </head>
+    <body>
+        <button class="normal">Button</button>
+        <button class="positive">Yes</button>
+        <button class="negative">Del</button>
+    </body>
+</html>

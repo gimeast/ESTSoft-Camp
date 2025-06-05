@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>over flow</title>
+        <style>
+            div {
+                width: 200px;
+                height: 100px;
+                border: solid 1px red;
+                margin-bottom: 100px;
+            }
+
+            .hidden {
+                overflow: hidden;
+            }
+            .scroll {
+                overflow: scroll;
+            }
+            .auto {
+                overflow: auto;
+            }
+
+            .ko-text {
+                word-break: keep-all;
+                overflow-wrap: break-word;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Temporibus
+            pariatur ducimus voluptate necessitatibus perferendis eligendi
+            repellat sapiente quibusdam recusandae soluta quos accusamus tempora
+            distinctio similique ex officia, consequatur cupiditate fuga.
+        </div>
+        <div class="hidden">
+            Incidunt enim error consequatur fugiat obcaecati laudantium
+            explicabo exercitationem. Enim ad iure, labore ipsam alias modi
+            itaque pariatur quod, ratione culpa officia veniam asperiores esse
+            impedit, accusamus voluptatem distinctio fuga.
+        </div>
+        <div class="scroll">
+            Dicta alias dolore quidem labore dolorum laborum, voluptas repellat
+            blanditiis consequatur? Quidem officiis dolores magnam asperiores
+            eaque quam distinctio porro commodi! Explicabo commodi neque aperiam
+            nemo perspiciatis officiis totam aut?
+        </div>
+        <div class="auto">
+            Veniam itaque reiciendis animi deserunt, ipsa doloremque sapiente
+            voluptatibus quo rerum dignissimos quos autem possimus vel amet
+            tenetur, quibusdam incidunt, velit quia exercitationem aperiam quas
+            vero? Non assumenda vitae sint.
+        </div>
+        <div class="ko-text scroll">
+            사법권은 법관으로 구성된 법원에 속한다. 이 헌법시행 당시에 이 헌법에
+            의하여 새로 설치될 기관의 권한에 속하는 직무를 행하고 있는 기관은 이
+            헌법에 의하여 새로운 기관이 설치될 때까지 존속하며 그 직무를 행한다.
+            대통령은 국민의 보통·평등·직접·비밀선거에 의하여 선출한다. 나는
+            헌법을 준수하고 국가를 보위하며 조국의 평화적 통일과 국민의 자유와
+            복리의 증진 및 민족문화의 창달에 노력하여 대통령으로서의 직책을
+            성실히 수행할 것을 국민 앞에 엄숙히 선서합니다.
+        </div>
+    </body>
+</html>

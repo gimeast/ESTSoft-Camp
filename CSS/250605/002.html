@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>box model</title>
+        <style>
+            .parent {
+                width: 300px;
+                background-color: gray;
+            }
+
+            /* 너비의 기본값은 auto. 부모 요소 너비 기준으로 꽉 채움 */
+            .child {
+                background-color: green;
+                /* 요소가 가질 수 있는 최소 너비, 영어: 단어사이의 공백 */
+                /* width: min-content; */
+                /* 컨텐츠 내용의 선호 너비 */
+                /* width: max-content; */
+                width: fit-content;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="parent">
+            <div class="child">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Atque
+                quisquam mollitia blanditiis, veritatis ipsam nisi porro facere
+                commodi, impedit esse perferendis ad eius iusto delectus
+                nostrum, molestias voluptate dolor quos.
+            </div>
+        </div>
+    </body>
+</html>
