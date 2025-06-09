@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>aspect-ratio</title>
+        <style>
+            /* 1. aspect-ratio 사용하는 방법 */
+            /* img {
+                width: 200px;
+                aspect-ratio: 1/1;
+                object-fit: cover;
+            } */
+            /* 2. padding 백분율 사용하는 방법 */
+            .thumbnail {
+                background-color: lightblue;
+                width: 30%;
+                height: 0;
+                padding-top: 30%; /* width의 비율과 동일하면 1:1이 된다. */
+                position: relative;
+            }
+            .thumbnail img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: 0 -200px;
+            }
+        </style>
+    </head>
+    <body>
+        <img
+            src="https://i.ytimg.com/vi/AFQaZjWBCb4/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLD2XR-iPjO5ytf9A26vQAIn6oSGPQ"
+            alt="샘플 이미지"
+        />
+
+        <div class="thumbnail">
+            <img
+                src="https://i.namu.wiki/i/Iau7o1QI8QeV7yJAwkic4FxdSNucaccA4-QC_5Wv_3xAsPK5nN5tHBoR0vSWJ7iE5DcisBeBisqDv4F_JL6sCA.webp"
+                alt=""
+            />
+        </div>
+    </body>
+</html>

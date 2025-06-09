@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>display</title>
+        <style>
+            div {
+                border: 1px solid black;
+                padding: 10px;
+            }
+            p {
+                background-color: lightblue;
+                display: inline;
+                /* width, height 속성과 상하 margin 속성은 사용할 수 없다 */
+                width: 100px;
+                height: 100px;
+                margin: 100px 0;
+            }
+            span {
+                background-color: lightcoral;
+                display: block;
+                width: 100px;
+                height: 100px;
+                margin: 10px 0;
+            }
+            .box3 span {
+                display: inline-block;
+            }
+            div {
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box1">
+            <p>p</p>
+            <p>p</p>
+            <p>p</p>
+            <p>p</p>
+            <p>p</p>
+        </div>
+        <div class="box2">
+            <span>span</span><span>span</span><span>span</span><span>span</span
+            ><span>span</span>
+        </div>
+        <div class="box3">
+            <span>span</span><span>span</span><span>span</span><span>span</span
+            ><span>span</span> <span>span</span><span>span</span
+            ><span>span</span><span>span</span><span>span</span>
+            <span>span</span><span>span</span><span>span</span><span>span</span
+            ><span>span</span> <span>span</span><span>span</span
+            ><span>span</span><span>span</span><span>span</span>
+        </div>
+    </body>
+</html>

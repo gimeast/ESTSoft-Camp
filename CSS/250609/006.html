@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>float</title>
+        <style>
+            .container {
+                border: 3px solid black;
+                /* height: 300px; 권장x */
+                /* overflow: hidden; 권장x */
+            }
+            .clearfix::after {
+                content: "";
+                display: block;
+                clear: both;
+            }
+            img {
+                width: 50px;
+                float: left;
+            }
+            h2 {
+                float: right;
+            }
+            p {
+                /* clear: right;
+                clear: left; */
+                /* clear: both; */
+                float: right;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container clearfix">
+            <h2>hello</h2>
+            <img src="./img/weniv-binky.png" alt="" />
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere
+                ratione, animi earum suscipit modi numquam, tempore neque
+                corrupti maiores veniam possimus laborum recusandae sunt itaque
+                in optio iure eveniet vero perferendis dolorum. Aliquam cum
+                veritatis praesentium repellat, neque minima maxime rem
+                perspiciatis distinctio, quibusdam porro quod eos doloremque
+                facilis voluptates explicabo voluptate delectus ratione
+                consequatur quam nobis. Nesciunt fugit sit deserunt, deleniti
+                veritatis eligendi quo impedit. Dignissimos repellendus tenetur
+                iure rem. Perspiciatis, debitis repudiandae? Quidem aperiam
+                facilis quibusdam molestias laudantium consectetur sunt
+                temporibus dolore adipisci est. Totam sapiente deserunt quo
+                repudiandae odit beatae culpa ad. Deserunt et nesciunt natus
+                iusto. temporibus dolore adipisci est. Totam sapiente deserunt
+                quo repudiandae odit beatae culpa ad. Deserunt et nesciunt natus
+                iusto. temporibus dolore adipisci est. Totam sapiente deserunt
+                quo repudiandae odit beatae culpa ad. Deserunt et nesciunt natus
+                iusto. temporibus dolore adipisci est. Totam sapiente deserunt
+                quo repudiandae odit beatae culpa ad. Deserunt et nesciunt natus
+                iusto.
+            </p>
+        </div>
+    </body>
+</html>

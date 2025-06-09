@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>이미지 비율 실습</title>
+        <style>
+            .aspect-ratio-square img {
+                width: 30%;
+                aspect-ratio: 1/1;
+                object-fit: cover;
+            }
+            .aspect-ratio-wide img {
+                width: 30%;
+                aspect-ratio: 2/1;
+                object-fit: cover;
+            }
+
+            .padding-square div {
+                background-color: red;
+                width: 30%;
+                height: 0;
+                display: inline-block;
+                position: relative;
+                padding-top: 30%;
+            }
+            .padding-square img {
+                object-fit: cover;
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+            }
+
+            .padding-wide div {
+                width: 30%;
+                height: 0;
+                display: inline-block;
+                position: relative;
+                padding-top: 15%;
+            }
+            .padding-wide img {
+                object-fit: cover;
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="aspect-ratio-square">
+            <img src="./img/weniv-binky.png" alt="" />
+            <img src="./img/weniv-chilli.png" alt="" />
+            <img src="./img/weniv-garry.png" alt="" />
+            <img src="./img/weniv-licat.png" alt="" />
+            <img src="./img/weniv-suri.png" alt="" />
+            <img src="./img/weniv-wade.png" alt="" />
+        </div>
+
+        <div class="aspect-ratio-wide">
+            <img src="./img/weniv-binky.png" alt="" />
+            <img src="./img/weniv-chilli.png" alt="" />
+            <img src="./img/weniv-garry.png" alt="" />
+            <img src="./img/weniv-licat.png" alt="" />
+            <img src="./img/weniv-suri.png" alt="" />
+            <img src="./img/weniv-wade.png" alt="" />
+        </div>
+
+        <div class="padding-square">
+            <div><img src="./img/weniv-binky.png" alt="" /></div>
+            <div><img src="./img/weniv-chilli.png" alt="" /></div>
+            <div><img src="./img/weniv-garry.png" alt="" /></div>
+            <div><img src="./img/weniv-licat.png" alt="" /></div>
+            <div><img src="./img/weniv-suri.png" alt="" /></div>
+            <div><img src="./img/weniv-wade.png" alt="" /></div>
+        </div>
+
+        <div class="padding-wide">
+            <div><img src="./img/weniv-binky.png" alt="" /></div>
+            <div><img src="./img/weniv-chilli.png" alt="" /></div>
+            <div><img src="./img/weniv-garry.png" alt="" /></div>
+            <div><img src="./img/weniv-licat.png" alt="" /></div>
+            <div><img src="./img/weniv-suri.png" alt="" /></div>
+            <div><img src="./img/weniv-wade.png" alt="" /></div>
+        </div>
+    </body>
+</html>
