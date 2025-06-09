@@ -1,0 +1,64 @@
+body {
+    background-color: #f5f5f5;
+}
+.template1 {
+    width: 288px;
+    background-color: var(--color-white);
+
+    position: fixed;
+    top: 46px;
+    left: 63px;
+    border-radius: 8px;
+}
+.template1 .thumbnail {
+    background-image: url("../../images/thumbnail.png");
+    border-radius: 8px 8px 0 0;
+
+    width: 288px;
+    height: 196px;
+    background-size: cover;
+}
+.template1 .content {
+    padding: 20px 16px 26px 16px;
+    color: var(--color-black);
+}
+.template1 h3 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 16px;
+}
+.template1 p {
+    font-size: 12px;
+    color: var(--color-gray);
+    line-height: 160%;
+}
+.template1 a {
+    display: inline-block;
+    margin: 19px 0 0 6px;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    font-weight: bold;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    border: 0;
+    clip: rect(0 0 0 0);
+}
+.multi-ellipsis {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+}
