@@ -1,0 +1,43 @@
+section {
+    width: 350px;
+
+    display: flex;
+    flex-direction: column;
+
+    border-radius: 5px;
+    border: 1px solid #dbdbdb;
+    padding: 16px 16px 18px;
+}
+
+section p {
+    font-size: 12px;
+}
+
+.login-link {
+    background-color: #711bff;
+    width: 318px;
+    height: 40px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+    color: white;
+    padding: 14px 108px;
+    margin-top: 16px;
+}
+.login-link img {
+    width: 56.58px;
+    height: 10.8px;
+    object-fit: cover;
+}
+
+.bottom {
+    color: #767676;
+    font-size: 12px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 16px;
+}
+.bottom img {
+    width: 16px;
+    vertical-align: middle;
+}

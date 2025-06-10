@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>login</title>
+        <link rel="stylesheet" href="./css/reset.css" />
+        <link rel="stylesheet" href="./css/practice3-style.css" />
+        <style></style>
+    </head>
+    <body>
+        <main>
+            <dialog open>
+                <header>
+                    <h2>로그인 또는 회원가입</h2>
+                    <a href="#"><img src="./images/close.png" alt="닫기" /></a>
+                </header>
+                <section class="login-wrap">
+                    <h3>위니브에서 여러분의 궁금증을 해결하세요! :)</h3>
+                    <form action="#">
+                        <label for="userid" class="sr-only">아이디</label>
+                        <input type="text" id="userid" placeholder="아이디" />
+
+                        <label for="password" class="sr-only">비밀번호</label>
+                        <input
+                            type="text"
+                            id="password"
+                            placeholder="비밀번호"
+                        />
+
+                        <div class="remember-box">
+                            <input
+                                class="sr-only"
+                                type="checkbox"
+                                id="remember-me"
+                            />
+                            <div class="label-box">
+                                <span
+                                    class="check-icon"
+                                    aria-hidden="true"
+                                ></span>
+                                <label for="remember-me"
+                                    >로그인 상태 유지</label
+                                >
+                            </div>
+                        </div>
+
+                        <button class="login-btn">로그인</button>
+                    </form>
+                </section>
+
+                <div class="account-wrap">
+                    <a class="join" href="#">회원가입</a>
+                    <span aria-hidden="true">|</span>
+                    <a class="account-find" href="#">아이디/비밀번호 찾기</a>
+                </div>
+
+                <div class="or-wrap">
+                    <hr />
+                    <span class="or">또는</span>
+                    <hr />
+                </div>
+
+                <section class="btn-wrap">
+                    <div>
+                        <img src="./images/google.png" alt="" />
+                        <a href="#">구글 계정으로 로그인</a>
+                    </div>
+                    <div>
+                        <img src="./images/facebook.png" alt="" />
+                        <a href="#">페이스북 계정으로 로그인</a>
+                    </div>
+                    <div>
+                        <img src="./images/naver.png" alt="" />
+                        <a href="#">네이버 계정으로 로그인</a>
+                    </div>
+                    <div>
+                        <img src="./images/kakao.png" alt="" />
+                        <a href="#">카카오 계정으로 로그인</a>
+                    </div>
+                </section>
+            </dialog>
+        </main>
+    </body>
+</html>

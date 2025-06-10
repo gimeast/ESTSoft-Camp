@@ -1,0 +1,179 @@
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    border: 0;
+    clip: rect(0 0 0 0);
+}
+
+dialog {
+    padding: 0;
+    width: 520px;
+    border: 1px solid #c4c4c4;
+    border-radius: 10px;
+}
+dialog header {
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid #c4c4c4;
+    position: relative;
+}
+dialog header h2 {
+    font-size: 16px;
+    font-weight: 500;
+}
+dialog header a {
+    position: absolute;
+    right: 24px;
+    width: 16px;
+}
+
+dialog .login-wrap h3 {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 24px;
+
+    padding: 26px 24px 24px;
+}
+dialog .login-wrap form {
+    display: flex;
+    flex-direction: column;
+    margin: 0 24px 20px;
+}
+.login-wrap form input {
+    color: #c4c4c4;
+    height: 50px;
+    font-size: 16px;
+    padding-left: 16px;
+    border: 1px solid #c4c4c4;
+    border-radius: 5px;
+}
+.login-wrap form input:first-of-type {
+    margin-bottom: 10px;
+}
+.login-wrap form input:last-of-type {
+    margin-bottom: 16px;
+}
+
+.remember-box {
+    display: flex;
+}
+.label-box {
+    position: relative;
+}
+.check-icon {
+    width: 1.4em;
+    height: 1.4em;
+    border-radius: 50%;
+    border: 1px solid #767676;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.check-icon::before {
+    content: "";
+    position: absolute;
+    box-sizing: border-box;
+    width: 30%;
+    height: 35%;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-70%) rotateZ(40deg);
+    border-right: 1px solid #767676;
+    border-bottom: 1px solid #767676;
+}
+.label-box label {
+    padding-left: 30px;
+    position: relative;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    color: #767676;
+}
+[type="checkbox"]:checked + .label-box .check-icon {
+    border-color: #2f80ed;
+    background-color: #2f80ed;
+}
+[type="checkbox"]:checked + .label-box .check-icon::before {
+    border-color: #fff;
+}
+
+.login-btn {
+    background-color: #2f80ed;
+    margin-top: 20px;
+    height: 50px;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 22px;
+    color: #fff;
+}
+
+dialog .account-wrap {
+    display: flex;
+    justify-content: center;
+    color: #767676;
+}
+dialog .account-wrap span {
+    margin: 0 12px 0 12px;
+}
+
+.or-wrap {
+    display: flex;
+    justify-content: center;
+    gap: 13px;
+    padding: 0 24px 0;
+    word-break: keep-all;
+    margin: 30px 0;
+}
+.or {
+    color: #767676;
+    font-size: 14px;
+}
+hr {
+    width: 100%;
+    height: 1px;
+    background-color: #767676;
+}
+
+.btn-wrap {
+    padding: 0 24px 0 24px;
+}
+.btn-wrap div {
+    height: 50px;
+    border: 1px solid #767676;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.btn-wrap div img {
+    margin-left: 12px;
+}
+.btn-wrap div a {
+    width: 100%;
+    text-align: center;
+}
+.btn-wrap div:nth-child(1) {
+    margin-bottom: 10px;
+    border-color: #767676;
+}
+.btn-wrap div:nth-child(2) {
+    margin-bottom: 10px;
+    border-color: #2d9cdb;
+}
+.btn-wrap div:nth-child(3) {
+    margin-bottom: 10px;
+    border-color: #00bf18;
+}
+.btn-wrap div:nth-child(4) {
+    margin-bottom: 25px;
+    border-color: #f2c94c;
+}
