@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>animation</title>
+        <style>
+            @keyframes move-box {
+                0% {
+                    transform: translate(0, 0);
+                    background-color: lightcoral;
+                }
+                100% {
+                    transform: translate(300px, 0px);
+                    background-color: lightseagreen;
+                }
+            }
+            .box {
+                width: 100px;
+                height: 100px;
+                background-color: #8fc9dc;
+
+                animation-name: move-box;
+                animation-duration: 3s;
+                /*animation-timing-function: ease-in-out;*/
+                /*animation-timing-function: cubic-bezier(0.22, 0.61, 0.16, 1.06);*/
+                animation-timing-function: steps(8);
+                /*animation-delay: 2s;*/
+
+                /*반복 횟수*/
+                /*animation-iteration-count: 2;*/
+                animation-iteration-count: infinite;
+
+                /*진행방향 설정*/
+                /*animation-direction: normal;*/
+                /*animation-direction: reverse;*/
+                /*animation-direction: alternate;*/
+                /*animation-direction: alternate-reverse;*/
+
+                /*애니메이션 끝난 후 마지막 키프레임을 보여준다.*/
+                /*animation-fill-mode: forwards;*/
+                animation-fill-mode: both;
+            }
+            .box:hover {
+                /*애니메이션 재생상태 설정*/
+                animation-play-state: paused;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box"></div>
+    </body>
+</html>

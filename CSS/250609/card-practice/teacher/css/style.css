@@ -13,12 +13,12 @@
     font-style: normal;
 }
 :root {
-    --main-color: #29363d;
+    --suit-color: #29363d;
     --sub-color: #5a6a72;
 }
 body {
     font-family: "Pretendard-Regular", sans-serif;
-    color: var(--main-color);
+    color: var(--suit-color);
     background: #eee;
 }
 /*공통 속성*/
@@ -117,7 +117,7 @@ article {
     height: 4px;
     border-style: solid;
     border-width: 2px 2px 0 0;
-    border-color: var(--main-color);
+    border-color: var(--suit-color);
     position: absolute;
     top: 50%;
     right: 0;

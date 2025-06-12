@@ -13,12 +13,12 @@
     font-style: normal;
 }
 :root {
-    --main-color: #29363d;
+    --suit-color: #29363d;
     --sub-color: #5a6a72;
 }
 body {
     font-family: "Pretendard-Regular", sans-serif;
-    color: var(--main-color);
+    color: var(--suit-color);
     background: #eee;
 }
 /*공통 속성*/
@@ -49,8 +49,8 @@ article {
 }
 .container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(278px, 1fr));
+    gap: 24px;
     margin-right: 34px;
 }
 
@@ -60,6 +60,12 @@ article {
     aspect-ratio: 288/196;
     object-fit: cover;
     border-radius: 8px 8px 0 0;
+}
+.card1 {
+    transition: transform 0.3s ease;
+}
+.card1:hover {
+    transform: scale(1.05);
 }
 
 .text-group {
