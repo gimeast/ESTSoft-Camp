@@ -1,0 +1,76 @@
+@font-face {
+    font-family: "Pretendard-Regular";
+    src: url("https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+        format("woff");
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Pretendard-Bold";
+    src: url("https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Bold.woff")
+        format("woff");
+    font-weight: 700;
+    font-style: normal;
+}
+:root {
+    --main-color: #29363d;
+    --sub-color: #5a6a72;
+}
+body {
+    font-family: "Pretendard-Regular", sans-serif;
+    color: var(--main-color);
+    background: #eee;
+}
+/*공통 속성*/
+article {
+    width: 100%;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 2px 2px 8px 0 rgba(0, 0, 0, 0.1);
+    margin: 20px;
+}
+.read-more {
+    font-family: "Pretendard-Bold", sans-serif;
+    font-size: 14px;
+    text-decoration: underline;
+    width: 70px;
+    padding: 3px 6px;
+}
+.multi-ellipsis {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 10px;
+    margin-right: 34px;
+}
+
+/*card1*/
+.card1 img {
+    width: 100%;
+    aspect-ratio: 288/196;
+    object-fit: cover;
+    border-radius: 8px 8px 0 0;
+}
+
+.text-group {
+    padding: 20px 16px 16px;
+}
+.text-group h2 {
+    font-family: "Pretendard-Bold", sans-serif;
+}
+.text-group p {
+    margin: 16px 0;
+    font-size: 12px;
+    line-height: 160%;
+    color: var(--sub-color);
+}

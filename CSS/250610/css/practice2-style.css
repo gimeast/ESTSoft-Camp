@@ -1,3 +1,16 @@
+@font-face {
+    font-family: "SpoqaHanSansNeo-Regular";
+    src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SpoqaHanSansNeo-Regular.woff")
+        format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: "SpoqaHanSansNeo-Regular", sans-serif;
+    padding: 50px;
+}
+
 section {
     width: 350px;
 
@@ -7,9 +20,7 @@ section {
     border-radius: 5px;
     border: 1px solid #dbdbdb;
     padding: 16px 16px 18px;
-}
 
-section p {
     font-size: 12px;
 }
 
@@ -18,7 +29,6 @@ section p {
     width: 318px;
     height: 40px;
     border-radius: 4px;
-    font-size: 12px;
     font-weight: 500;
     color: white;
     padding: 14px 108px;
@@ -32,12 +42,15 @@ section p {
 
 .bottom {
     color: #767676;
-    font-size: 12px;
     display: flex;
     justify-content: space-between;
     margin-top: 16px;
 }
 .bottom img {
     width: 16px;
-    vertical-align: middle;
+    /*vertical-align: middle;*/
+}
+.bottom a {
+    display: flex;
+    align-items: center;
 }
