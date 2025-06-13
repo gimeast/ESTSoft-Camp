@@ -95,10 +95,10 @@ article {
     aspect-ratio: 288/196;
     object-fit: cover;
 }
-.card2 .content {
+.card2 .front-content {
     padding: 10px 16px 16px;
 }
-.card2 .content p {
+.card2 .front-content p {
     font-size: 12px;
     line-height: 160%;
     color: var(--sub-color);

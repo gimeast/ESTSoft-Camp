@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>카드 회전 시키기</title>
+        <style>
+            :root {
+                /*원의 둘레 = 이미지의 너비 * 7*/
+                --circumference: 700px;
+                /*원의 반지름 = 원주 / 3.14 / 2*/
+                --radius: calc(var(--circumference) / (2 * 3.14));
+                /*각 이미지 사이의 각도 =  360 / 7*/
+                --degree: calc(360deg / 7);
+            }
+
+            /*컨테이너가 360도 도는 부분*/
+            @keyframes rotate {
+                from {
+                    transform: rotateY(0deg);
+                }
+                to {
+                    transform: rotateY(360deg);
+                }
+            }
+
+            body {
+                perspective: 300px;
+            }
+
+            .container {
+                margin: 500px;
+                position: relative;
+
+                display: flex;
+                justify-content: center;
+                transform-style: preserve-3d;
+
+                animation: rotate 5s linear infinite;
+            }
+            .item {
+                position: absolute;
+                width: 100px;
+                height: 100px;
+                border: 1px solid #eee;
+                border-radius: 2px;
+            }
+            .item1 {
+                transform: rotateY(0deg) translateZ(var(--radius));
+            }
+            .item2 {
+                transform: rotateY(var(--degree)) translateZ(var(--radius));
+            }
+            .item3 {
+                transform: rotateY(calc(var(--degree) * 2))
+                    translateZ(var(--radius));
+            }
+            .item4 {
+                transform: rotateY(calc(var(--degree) * 3))
+                    translateZ(var(--radius));
+            }
+            .item5 {
+                transform: rotateY(calc(var(--degree) * 4))
+                    translateZ(var(--radius));
+            }
+            .item6 {
+                transform: rotateY(calc(var(--degree) * 5))
+                    translateZ(var(--radius));
+            }
+            .item7 {
+                transform: rotateY(calc(var(--degree) * 6))
+                    translateZ(var(--radius));
+            }
+            img {
+                height: 100%;
+                aspect-ratio: 1 / 1;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="item item1">
+                <img src="./images/ev.png" alt="" />
+            </div>
+            <div class="item item2">
+                <img src="./images/jammanbo.png" alt="" />
+            </div>
+            <div class="item item3">
+                <img src="./images/mazayoung.png" alt="" />
+            </div>
+            <div class="item item4">
+                <img src="./images/mobugi.png" alt="" />
+            </div>
+            <div class="item item5">
+                <img src="./images/nyaong.png" alt="" />
+            </div>
+            <div class="item item6">
+                <img src="./images/pulin.png" alt="" />
+            </div>
+            <div class="item item7">
+                <img src="./images/weirdseed.png" alt="" />
+            </div>
+        </div>
+    </body>
+</html>

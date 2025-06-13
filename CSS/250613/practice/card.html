@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>카드 회전 시키기</title>
+        <style>
+            .container {
+                margin: 100px auto;
+                perspective: 1000px;
+                color: white;
+            }
+
+            .card {
+                width: 400px;
+                height: 600px;
+                position: relative;
+
+                border-radius: 20px;
+                box-shadow: 10px 20px 30px 5px #0000004d;
+
+                transition: all 3s ease-in-out;
+                transform-style: preserve-3d;
+            }
+            .card::before,
+            .card::after {
+                border-radius: 20px;
+                position: absolute;
+                width: 100%;
+                height: 100%;
+            }
+            .card::before {
+                /*content: url("https://picsum.photos/500/800");*/
+                content: "";
+                backface-visibility: hidden;
+
+                background: linear-gradient(
+                    40deg,
+                    rgba(2, 0, 36, 0.52) 0%,
+                    rgba(9, 9, 121, 1) 59%,
+                    rgba(0, 212, 255, 1) 100%
+                );
+            }
+            .card::after {
+                content: "";
+                transform: rotateY(180deg);
+                backface-visibility: hidden;
+            }
+            .card:hover {
+                transform: rotateY(540deg);
+            }
+            .front-content {
+                width: 100%;
+                height: 0;
+                position: relative;
+                top: 30px;
+
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                backface-visibility: hidden;
+            }
+            .shape {
+                width: 100px;
+                height: 100px;
+                position: absolute;
+                top: 0;
+                right: 0;
+            }
+            .profile {
+                margin-top: 20px;
+                width: 200px;
+                border-radius: 10%;
+            }
+            .profile img {
+                width: 100%;
+                border-radius: 50%;
+            }
+            .front-content p:nth-of-type(1) {
+                margin-top: 100px;
+                font-size: 18px;
+            }
+            .front-content p:nth-of-type(2) {
+                font-size: 35px;
+                margin: 0;
+            }
+            .back-content {
+                color: #1a202c;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transform: rotateY(180deg);
+                backface-visibility: hidden;
+
+                margin: 20px 30px;
+            }
+            .back-content p {
+                margin-bottom: 30px;
+            }
+            .line {
+                width: 80%;
+                height: 1px;
+                background-color: #1a202c;
+                margin-bottom: 30px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="card">
+                <div class="front-content">
+                    <div class="shape"></div>
+                    <h1>사원증</h1>
+                    <div class="profile">
+                        <img src="./img/profile.png" alt="프로필 이미지" />
+                    </div>
+                    <p>000팀 / 사원</p>
+                    <p>김&nbsp동&nbsp욱</p>
+                </div>
+                <div class="back-content">
+                    <h2>유의사항</h2>
+                    <p>
+                        이 카드는 당사의 사원 신분증이므로 항상 패용 또는
+                        휴대해야 합니다. 훼손, 분실시에는 즉시 경영지원팀에
+                        연락하여 재발급 받으시기 바랍니다.
+                    </p>
+                    <p>
+                        이 카드는 타인에게 양도할 수 없습니다. 휴직, 퇴사시에는
+                        반드시 지원팀으로 반납해야 합니다.
+                    </p>
+                    <p>
+                        카드를 습득하신 분은 아래 연락처로 연락주시기 바랍니다.
+                    </p>
+
+                    <div class="line"></div>
+                    <address>Tel. 00-0000-0000 00시 00구 00로 123</address>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

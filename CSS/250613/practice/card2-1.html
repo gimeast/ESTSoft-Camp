@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>카드 회전 시키기</title>
+        <style>
+            /*
+            7장의 이미지가 원통 모양으로 배치되어 회전하는 구조
+            원의 둘레 = 이미지의 너비 * 7
+            원의 반지름 = 원주 / 3.14 / 2
+            각 이미지 사이의 각도 =  360 / 7
+            */
+            @keyframes rotate {
+                100% {
+                    transform: rotateY(360deg);
+                }
+            }
+            img {
+                width: 100%;
+            }
+            .item {
+                width: 300px;
+                height: 400px;
+                border: 1px solid black;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                position: absolute;
+
+                /*뒷면을 숨기는 기능*/
+                /*backface-visibility: hidden;*/
+            }
+            .container {
+                margin-top: 600px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                animation: rotate 7s linear infinite;
+                transform-style: preserve-3d;
+            }
+
+            .item1 {
+                transform: translateY(0) translateZ(calc(2100px / (3.14 * 2)));
+            }
+            .item2 {
+                transform: rotateY(calc(360deg / 7))
+                    /*각 카드의 각도 계산 공식*/
+                    translateZ(calc(2100px / (3.14 * 2))); /*이 공식은 반지름 만큼 z축으로 이동하는 공식이다*/
+            }
+            .item3 {
+                transform: rotateY(calc(360deg / 7 * 2))
+                    translateZ(calc(2100px / (3.14 * 2)));
+            }
+            .item4 {
+                transform: rotateY(calc(360deg / 7 * 3))
+                    translateZ(calc(2100px / (3.14 * 2)));
+            }
+            .item5 {
+                transform: rotateY(calc(360deg / 7 * 4))
+                    translateZ(calc(2100px / (3.14 * 2)));
+            }
+            .item6 {
+                transform: rotateY(calc(360deg / 7 * 5))
+                    translateZ(calc(2100px / (3.14 * 2)));
+            }
+            .item7 {
+                transform: rotateY(calc(360deg / 7 * 6))
+                    translateZ(calc(2100px / (3.14 * 2)));
+            }
+
+            .wrapper {
+                perspective: 1500px;
+            }
+            .top {
+                perspective-origin: center 1000px; /*x축 관점 y축 관점*/
+            }
+            .bottom {
+                perspective-origin: center -1000px; /*x축 관점 y축 관점*/
+            }
+        </style>
+    </head>
+    <body>
+        <div class="wrapper top">
+            <div class="container">
+                <div class="item item1">
+                    <img src="./images/ev.png" alt="" />
+                </div>
+                <div class="item item2">
+                    <img src="./images/jammanbo.png" alt="" />
+                </div>
+                <div class="item item3">
+                    <img src="./images/mazayoung.png" alt="" />
+                </div>
+                <div class="item item4">
+                    <img src="./images/mobugi.png" alt="" />
+                </div>
+                <div class="item item5">
+                    <img src="./images/nyaong.png" alt="" />
+                </div>
+                <div class="item item6">
+                    <img src="./images/pulin.png" alt="" />
+                </div>
+                <div class="item item7">
+                    <img src="./images/weirdseed.png" alt="" />
+                </div>
+            </div>
+        </div>
+
+        <div class="wrapper">
+            <div class="container">
+                <div class="item item1">
+                    <img src="./images/ev.png" alt="" />
+                </div>
+                <div class="item item2">
+                    <img src="./images/jammanbo.png" alt="" />
+                </div>
+                <div class="item item3">
+                    <img src="./images/mazayoung.png" alt="" />
+                </div>
+                <div class="item item4">
+                    <img src="./images/mobugi.png" alt="" />
+                </div>
+                <div class="item item5">
+                    <img src="./images/nyaong.png" alt="" />
+                </div>
+                <div class="item item6">
+                    <img src="./images/pulin.png" alt="" />
+                </div>
+                <div class="item item7">
+                    <img src="./images/weirdseed.png" alt="" />
+                </div>
+            </div>
+        </div>
+
+        <div class="wrapper bottom">
+            <div class="container">
+                <div class="item item1">
+                    <img src="./images/ev.png" alt="" />
+                </div>
+                <div class="item item2">
+                    <img src="./images/jammanbo.png" alt="" />
+                </div>
+                <div class="item item3">
+                    <img src="./images/mazayoung.png" alt="" />
+                </div>
+                <div class="item item4">
+                    <img src="./images/mobugi.png" alt="" />
+                </div>
+                <div class="item item5">
+                    <img src="./images/nyaong.png" alt="" />
+                </div>
+                <div class="item item6">
+                    <img src="./images/pulin.png" alt="" />
+                </div>
+                <div class="item item7">
+                    <img src="./images/weirdseed.png" alt="" />
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

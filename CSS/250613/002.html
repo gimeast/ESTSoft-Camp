@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>perspective - 3D</title>
+        <style>
+            .container {
+                margin: 50px auto;
+                display: flex;
+                gap: 50px;
+                background-color: #eee;
+
+                /*3D 공간의 깊이(z 축 선상의 사용자 위치) 지정*/
+                /*작아질수록 변형이 크다*/
+                perspective: 500px;
+            }
+            .item {
+                width: 150px;
+                height: 150px;
+                background-color: lightsteelblue;
+                border: 1px solid black;
+                box-shadow: 10px 20px 20px 0 rgba(159, 79, 79, 0.5);
+
+                transform: rotateY(90deg);
+            }
+            .one {
+                perspective-origin: left top;
+            }
+            .three {
+                perspective-origin: right bottom;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>left top</h2>
+        <div class="container one">
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+        </div>
+
+        <h2>center</h2>
+        <div class="container two">
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+        </div>
+
+        <h2>right bottom</h2>
+        <div class="container three">
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+        </div>
+    </body>
+</html>

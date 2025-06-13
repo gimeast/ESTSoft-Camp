@@ -18,7 +18,7 @@ body {
     height: 196px;
     background-size: cover;
 }
-.template1 .content {
+.template1 .front-content {
     padding: 20px 16px 26px 16px;
     color: var(--color-black);
 }
