@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>css 함수</title>
+        <style>
+            div {
+                background-color: lightseagreen;
+                height: 200px;
+                margin: auto;
+                /*width: 1400px;*/
+                /*width: min(600px, 90%);*/
+                width: max(600px, 90%, 300px);
+                max-width: calc(100% - 60px);
+            }
+            ol {
+                margin: 0;
+                padding: 0;
+            }
+            li {
+                list-style: none;
+                background-color: lightsteelblue;
+                float: left;
+                padding: 20px 0;
+                width: calc((100% - (50px * 2)) / 3);
+
+                font-size: clamp(20px, 4vw, 32px);
+            }
+            li:not(:first-child) {
+                margin-left: 50px;
+            }
+        </style>
+    </head>
+    <body>
+        <div></div>
+        <ol>
+            <li>씻기</li>
+            <li>노트북 켜기</li>
+            <li>출석하기</li>
+        </ol>
+    </body>
+</html>

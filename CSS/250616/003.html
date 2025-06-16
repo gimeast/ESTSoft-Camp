@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <img
+            srcset="
+                ./images/chilli_360px.jpg   360w,
+                ./images/chilli_720px.jpg   720w,
+                ./images/chilli_1440px.jpg 1440w
+            "
+            src="./images/chilli_360px.jpg"
+            alt=""
+        />
+
+        <img
+            srcset="
+                ./images/chilli_360px.jpg   360w,
+                ./images/chilli_720px.jpg   720w,
+                ./images/chilli_1440px.jpg 1440w
+            "
+            src="./images/chilli_360px.jpg"
+            sizes="(max-width: 360px) 200px, (max-width: 720px) 400px, 800px"
+            alt=""
+        />
+
+        <picture>
+            <source
+                media="(min-width: 1024px)"
+                srcset="./images/lication-chilli.png"
+            />
+            <source
+                media="(max-width: 1023px)"
+                srcset="./images/lication-chilli2.png"
+            />
+            <img src="./images/lication-chilli.png" alt="위니브" />
+        </picture>
+    </body>
+</html>

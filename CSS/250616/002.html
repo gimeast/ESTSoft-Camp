@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>미디어쿼리</title>
+        <style>
+            /*640 ~ 800*/
+            @media screen and (min-width: 640px) and (max-width: 800px) {
+                body {
+                    background-color: lightsteelblue;
+                }
+            }
+            /*700 이상이거나 300 이하거나*/
+            @media screen and (min-width: 700px), (max-width: 300px) {
+                body {
+                    background-color: purple;
+                }
+            }
+            /*가로가 더 길면 적용*/
+            @media screen and (orientation: landscape) {
+                body {
+                    background-color: orange;
+                }
+            }
+            /*세로가 더 길면 적용*/
+            @media screen and (orientation: portrait) {
+                body {
+                    /*background-color: lightseagreen;*/
+                }
+            }
+        </style>
+    </head>
+    <body>
+        안녕하세요
+    </body>
+</html>

@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>카드 목록 보기</title>
+        <link rel="stylesheet" href="./reset.css" />
+        <style>
+            /*
+            5장의 이미지가 원통 모양으로 배치되어 회전하는 구조
+            원의 둘레 = 이미지의 너비 * 5
+            원의 반지름 = 원주 / 3.14 / 2
+            각 이미지 사이의 각도 =  360 / 5
+            */
+            @keyframes rotate {
+                100% {
+                    transform: rotateY(360deg);
+                }
+            }
+            body {
+                height: 1000px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            img {
+                width: 100%;
+            }
+            div {
+                perspective: 1000px;
+            }
+            .container {
+                width: 100%;
+                height: 100%;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 150px;
+
+                transform-style: preserve-3d;
+                animation: rotate 7s linear infinite;
+            }
+            .card {
+                width: 300px;
+                position: absolute;
+            }
+            .one {
+                transform: rotateY(0) translateZ(calc(1500px / (3.14 * 2)));
+            }
+            .two {
+                transform: rotateY(calc(360deg / 5))
+                    translateZ(calc(1500px / (3.14 * 2)));
+            }
+            .three {
+                transform: rotateY(calc((360deg / 5) * 2))
+                    translateZ(calc(1500px / (3.14 * 2)));
+            }
+            .four {
+                transform: rotateY(calc((360deg / 5) * 3))
+                    translateZ(calc(1500px / (3.14 * 2)));
+            }
+            .five {
+                transform: rotateY(calc((360deg / 5) * 4))
+                    translateZ(calc(1500px / (3.14 * 2)));
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <ul class="container">
+                <li class="card one"><img src="./img/img1.png" alt="" /></li>
+                <li class="card two"><img src="./img/img2.png" alt="" /></li>
+                <li class="card three"><img src="./img/img3.png" alt="" /></li>
+                <li class="card four"><img src="./img/img4.png" alt="" /></li>
+                <li class="card five"><img src="./img/img5.png" alt="" /></li>
+            </ul>
+        </div>
+    </body>
+</html>

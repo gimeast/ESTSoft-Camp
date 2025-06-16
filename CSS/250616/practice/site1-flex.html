@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>위니브 콘텐츠 제작 공고</title>
+        <link rel="stylesheet" href="./reset.css" />
+        <style>
+            @font-face {
+                font-family: "SpoqaHanSansNeo-Regular";
+                src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SpoqaHanSansNeo-Regular.woff")
+                    format("woff");
+                font-weight: normal;
+                font-style: normal;
+            }
+            /*
+            데스크톱 (1920px 이상): 가로로 긴 레이아웃, 큰 이미지 2개
+            태블릿 (768px - 1919px): 세로로 긴 레이아웃, 작은 이미지 2개
+            모바일 (767px 이하): 세로로 긴 레이아웃, 작은 이미지 2개, 더 작은 폰트 크기
+            */
+            :root {
+                --mobile-main-padding: 100px 16px;
+                --mobile-h1-font-size: 36px;
+                --mobile-h3-font-size: 20px;
+                --mobile-p-font-size: 14px;
+                --mobile-p-span-font-size: 14px;
+                --mobile-p-line-height: 20px;
+                --mobile-p-margin-top: 14px;
+                --mobile-section-margin-top: 40px;
+                --mobile-span-font-size: 14px;
+                --mobile-li-margin-top: 14px;
+
+                --tablet-main-padding: 100px 30px;
+                --tablet-h1-font-size: 70px;
+                --tablet-p-font-size: 18px;
+                --tablet-p-span-font-size: 18px;
+                --tablet-p-line-height: 26px;
+                --tablet-p-margin-top: 14px;
+                --tablet-section-margin-top: 60px;
+                --tablet-h3-font-size: 24px;
+                --tablet-span-font-size: 16px;
+                --tablet-li-margin-top: 14px;
+
+                --pc-main-padding: 240px 360px;
+                --pc-h1-font-size: 70px;
+                --pc-p-font-size: 18px;
+                --pc-p-span-font-size: 20px;
+                --pc-p-line-height: 26px;
+                --pc-p-margin-top: 20px;
+                --pc-section-margin-top: 60px;
+                --pc-h3-font-size: 30px;
+                --pc-span-font-size: 16px;
+                --pc-li-margin-top: 14px;
+            }
+            @media screen and (max-width: 767px) {
+                main {
+                    padding: var(--mobile-main-padding);
+
+                    color: #121314;
+                    font-weight: 400;
+
+                    display: flex;
+                    flex-direction: column;
+                }
+                h1 {
+                    font-family: "SpoqaHanSansNeo-Regular", sans-serif;
+                    font-size: var(--mobile-h1-font-size);
+                    line-height: 100%;
+                    vertical-align: middle;
+                    word-break: keep-all;
+                }
+                h1 > span {
+                    font-family: Spoqa Han Sans Neo;
+                    font-weight: 700;
+                }
+                p {
+                    margin-top: var(--mobile-p-margin-top);
+                    font-size: var(--mobile-p-font-size);
+                    line-height: var(--mobile-p-line-height);
+
+                    span {
+                        font-family: Spoqa Han Sans Neo;
+                        font-weight: 700;
+                        font-size: var(--mobile-p-span-font-size);
+                        line-height: 20px;
+                    }
+                }
+                section {
+                    margin-top: var(--mobile-section-margin-top);
+                }
+                ul {
+                    display: flex;
+                    flex-direction: column;
+                }
+                div {
+                    position: relative;
+                }
+
+                div > .content-wrap {
+                    aspect-ratio: 2/ 1;
+
+                    border-radius: 20px;
+                    background-color: #121314cc;
+
+                    h3 {
+                        position: absolute;
+                        top: 30px;
+                        left: 30px;
+
+                        font-size: var(--mobile-h3-font-size);
+                        font-weight: 700;
+                        color: #fff;
+                    }
+                    p {
+                        color: #47494d;
+                    }
+                    span {
+                        color: #fff;
+                        font-weight: 400;
+                        font-size: var(--mobile-span-font-size);
+
+                        position: absolute;
+                        right: 20px;
+                        bottom: 20px;
+
+                        img {
+                            vertical-align: middle;
+                        }
+                    }
+                }
+                li:nth-child(1) .content-wrap {
+                    background-image:
+                        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                        url("../images/img1.jpg");
+
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                }
+                li:nth-child(2) .content-wrap {
+                    background-image:
+                        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                        url("../images/img2.jpg");
+
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                }
+                li:not(:first-child) {
+                    margin-top: var(--mobile-li-margin-top);
+                }
+            }
+
+            @media screen and (min-width: 768px) and (max-width: 1919px) {
+                main {
+                    padding: var(--tablet-main-padding);
+
+                    color: #121314;
+                    font-weight: 400;
+
+                    display: flex;
+                    flex-direction: column;
+                }
+                h1 {
+                    font-family: "SpoqaHanSansNeo-Regular", sans-serif;
+                    font-size: var(--tablet-h1-font-size);
+                    line-height: 100%;
+                    vertical-align: middle;
+                    word-break: keep-all;
+                }
+                h1 > span {
+                    font-family: Spoqa Han Sans Neo;
+                    font-weight: 700;
+                }
+                p {
+                    margin-top: var(--tablet-p-margin-top);
+                    font-size: var(--tablet-p-font-size);
+                    line-height: var(--tablet-p-line-height);
+
+                    span {
+                        font-family: Spoqa Han Sans Neo;
+                        font-weight: 700;
+                        font-size: var(--tablet-p-span-font-size);
+                        line-height: 20px;
+                    }
+                }
+                section {
+                    margin-top: var(--tablet-section-margin-top);
+                }
+                ul {
+                    width: 100%;
+                    display: flex;
+                    flex-direction: row;
+                    gap: 20px;
+                }
+                div {
+                    position: relative;
+                }
+
+                div > .content-wrap {
+                    aspect-ratio: 2/ 1;
+
+                    border-radius: 20px;
+                    background-color: #121314cc;
+                    position: relative;
+
+                    h3 {
+                        position: absolute;
+                        top: 30px;
+                        left: 30px;
+
+                        font-size: var(--tablet-h3-font-size);
+                        font-weight: 700;
+                        color: #fff;
+                    }
+                    p {
+                        color: #47494d;
+                    }
+                    span {
+                        color: #fff;
+                        font-weight: 400;
+                        font-size: var(--tablet-span-font-size);
+
+                        position: absolute;
+                        right: 20px;
+                        bottom: 20px;
+
+                        img {
+                            vertical-align: middle;
+                        }
+                    }
+                }
+                li {
+                    flex: 1;
+                }
+                li:nth-child(1) .content-wrap {
+                    background-image:
+                        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                        url("../images/img1.jpg");
+
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                }
+                li:nth-child(2) .content-wrap {
+                    background-image:
+                        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                        url("../images/img2.jpg");
+
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                }
+            }
+
+            @media screen and (min-width: 1920px) {
+                main {
+                    padding: var(--pc-main-padding);
+
+                    color: #121314;
+                    font-weight: 400;
+
+                    display: flex;
+                    flex-direction: row;
+                }
+                h1 {
+                    font-family: "SpoqaHanSansNeo-Regular", sans-serif;
+                    font-size: var(--pc-h1-font-size);
+                    line-height: 100%;
+                    vertical-align: middle;
+                    word-break: keep-all;
+                }
+                h1 > span {
+                    font-family: Spoqa Han Sans Neo;
+                    font-weight: 700;
+                }
+                p {
+                    margin-top: var(--pc-p-margin-top);
+                    font-size: var(--pc-p-font-size);
+                    line-height: var(--pc-p-line-height);
+
+                    span {
+                        font-family: Spoqa Han Sans Neo;
+                        font-weight: 700;
+                        font-size: var(--pc-p-span-font-size);
+                        line-height: 30px;
+                    }
+                }
+                section {
+                    margin-top: var(--pc-section-margin-top);
+                }
+                ul {
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 20px;
+                }
+                div {
+                    position: relative;
+                }
+
+                div > .content-wrap {
+                    width: 486px;
+                    height: 280px;
+                    aspect-ratio: 2/ 1;
+
+                    border-radius: 20px;
+                    background-color: #121314cc;
+                    position: relative;
+
+                    h3 {
+                        position: absolute;
+                        top: 30px;
+                        left: 30px;
+
+                        font-size: var(--pc-h3-font-size);
+                        font-weight: 700;
+                        color: #fff;
+                    }
+                    p {
+                        color: #47494d;
+                    }
+                    span {
+                        color: #fff;
+                        font-weight: 400;
+                        font-size: var(--pc-span-font-size);
+
+                        position: absolute;
+                        right: 20px;
+                        bottom: 20px;
+
+                        img {
+                            vertical-align: middle;
+                        }
+                    }
+                }
+                li {
+                    flex: 1;
+                }
+                li:nth-child(1) .content-wrap {
+                    background-image:
+                        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                        url("../images/img1.jpg");
+
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                }
+                li:nth-child(2) .content-wrap {
+                    background-image:
+                        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                        url("../images/img2.jpg");
+
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                }
+            }
+            .sr-only {
+                position: absolute;
+                width: 1px;
+                height: 1px;
+                padding: 0;
+                margin: -1px;
+                overflow: hidden;
+                clip-path: inset(50%);
+                border: 0;
+                clip: rect(0 0 0 0);
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <section>
+                <h1>
+                    위니브에서 <br />
+                    <span>함께 콘텐츠 제작하실 분을 모십니다.</span>
+                </h1>
+                <p>
+                    <span>위니브는</span>ICT 연구 및 (코딩)교육 기관이며 <br />
+                    다양한 사회 공헌 활동을 하고 있습니다.
+                </p>
+            </section>
+            <section>
+                <h2 class="sr-only">모집 분야</h2>
+                <ul>
+                    <li>
+                        <div>
+                            <div class="content-wrap">
+                                <h3>IT 교육 영상 콘텐츠</h3>
+                                <a href="#">
+                                    <span
+                                        >바로가기
+                                        <img src="../images/icon.png" alt=""
+                                    /></span>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <div class="content-wrap">
+                                <h3>IT 서적</h3>
+                                <a href="#">
+                                    <span
+                                        >바로가기
+                                        <img src="../images/icon.png" alt=""
+                                    /></span>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+        </main>
+    </body>
+</html>
