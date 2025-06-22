@@ -1,0 +1,548 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>wenivooks</title>
+        <link rel="stylesheet" href="./reset.css" />
+        <style>
+            .sr-only {
+                position: absolute;
+                width: 1px;
+                height: 1px;
+                padding: 0;
+                margin: -1px;
+                overflow: hidden;
+                clip-path: inset(50%);
+                border: 0;
+                clip: rect(0 0 0 0);
+            }
+            .multi-ellipsis {
+                overflow: hidden;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 2;
+            }
+            html {
+                font-size: 10px;
+            }
+            body {
+                display: flex;
+                flex-direction: column;
+                min-height: 100vh;
+            }
+            main {
+                flex: 1;
+            }
+
+            @media screen and (max-width: 390px) {
+                header {
+                    padding: 1.5rem 1.6rem;
+                    display: flex;
+                    justify-content: space-between;
+                }
+
+                .banner {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-end;
+
+                    padding: 1.2rem 2.4rem;
+
+                    height: 24rem;
+                    background-image:
+                        linear-gradient(
+                            180deg,
+                            rgba(182, 241, 135, 0) 50%,
+                            #b6f187 100%
+                        ),
+                        url("../images/banner-img1200px.png");
+
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    background-size: cover;
+
+                    h2 {
+                        display: inline-block;
+                        align-self: flex-start;
+
+                        background-color: #ffffff;
+                        color: #2e6ff2;
+                        font-size: 1.4rem;
+                        font-weight: 700;
+                        line-height: 2rem;
+
+                        padding: 0 0.4rem;
+                    }
+                    p {
+                        align-self: flex-start;
+                        font-size: 1.8rem;
+                        line-height: 2.4rem;
+                        font-weight: 700;
+                        margin-top: 0.8rem;
+
+                        color: #121314;
+                    }
+                    .pc-desc {
+                        display: none;
+                    }
+
+                    .slider {
+                        margin-top: 2rem;
+                        display: flex;
+                        gap: 1.2rem;
+                        align-self: center;
+
+                        li {
+                            width: 1rem;
+                            height: 1rem;
+                            background-color: #ffffff80;
+                            border-radius: 50%;
+                        }
+                        .current {
+                            background-color: #fff;
+                        }
+                    }
+                }
+                article {
+                    margin-top: 3.2rem;
+                    .book-box-wrap {
+                        display: flex;
+                        flex-direction: column;
+                        .book-box {
+                            display: grid;
+                            grid-template-areas:
+                                "book-img inner-content"
+                                "btn-group btn-group";
+                            img {
+                                width: 11rem;
+                                height: 15.6rem;
+                                grid-area: book-img;
+                                border-radius: 1rem;
+                                background-color: #d9dbe0;
+                            }
+                            .inner {
+                                grid-area: inner-content;
+                            }
+                            .btn-group {
+                                grid-area: btn-group;
+                            }
+                        }
+                    }
+                }
+
+                footer {
+                }
+            }
+
+            @media screen and (min-width: 391px) {
+                header {
+                    padding: 1.5rem 0 1.5rem 1.6rem;
+                    display: flex;
+                    justify-content: space-between;
+                    a > img {
+                        width: 20.2rem;
+                        height: 3.4rem;
+                    }
+                }
+
+                .banner {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+
+                    padding: 8rem 36.5rem 1.6rem;
+
+                    height: 40rem;
+                    background-color: #b6f187;
+                    background-image: url("../images/banner-img1200px.png");
+
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    background-size: contain;
+
+                    div {
+                        h2 {
+                            display: inline-block;
+
+                            background-color: #ffffff;
+                            color: #2e6ff2;
+                            font-size: 1.4rem;
+                            font-weight: 700;
+                            line-height: 2rem;
+
+                            padding: 0 0.4rem;
+                        }
+                        p {
+                            margin-top: 1.2rem;
+                        }
+                        p:first-of-type {
+                            font-size: 4rem;
+                            font-weight: 700;
+                            line-height: 5.6rem;
+                            color: #121314;
+                        }
+                        p:last-of-type {
+                            font-size: 1.6rem;
+                            line-height: 2.2rem;
+                            span {
+                                font-weight: 700;
+                            }
+                        }
+                    }
+
+                    .slider {
+                        display: flex;
+                        gap: 1.2rem;
+                        align-self: center;
+
+                        li {
+                            width: 1rem;
+                            height: 1rem;
+                            background-color: #ffffff80;
+                            border-radius: 50%;
+                        }
+                        .current {
+                            background-color: #fff;
+                        }
+                    }
+                }
+                .content-wrap {
+                    ul {
+                        display: flex;
+                        justify-content: center;
+                        gap: 4.6rem;
+                    }
+                }
+                article {
+                    width: 57.2rem;
+                    margin-top: 8rem;
+                    display: flex;
+                    flex-direction: column;
+
+                    .book-box {
+                        display: grid;
+                        grid-template-areas:
+                            "book content"
+                            "book btn-group";
+                        gap: 3.2em;
+
+                        img {
+                            grid-area: book;
+                            background-color: #d9dbe0;
+                            width: 16rem;
+                            min-width: 16rem;
+
+                            height: 24rem;
+                            border-radius: 1rem;
+                        }
+                        .content {
+                            grid-area: content;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: space-between;
+                        }
+                        .content > div > p:first-of-type {
+                            font-weight: 500;
+                            font-size: 1.6rem;
+                            line-height: 2.2rem;
+                            color: #8d9299;
+                        }
+                        .content > div > p:last-of-type {
+                            font-weight: 400;
+                            font-size: 1.6rem;
+                            line-height: 2.2rem;
+                            margin-top: 12px;
+                            color: #47494d;
+                        }
+                        h3 {
+                            margin-top: 0.8rem;
+                            font-size: 2.4rem;
+                            font-weight: 600;
+                            line-height: 2.2rem;
+                        }
+                        dl {
+                            margin-top: 1.2rem;
+                            display: flex;
+                            gap: 0.8rem;
+                            dt {
+                                color: #47494d;
+                                font-weight: 500;
+                                font-size: 1.6rem;
+                                line-height: 2.2rem;
+                            }
+                            dd {
+                                color: #2e6ff2;
+                                font-size: 1.6rem;
+                                line-height: 2.2rem;
+                                font-weight: 700;
+                            }
+                        }
+                    }
+
+                    .btn-group {
+                        grid-area: btn-group;
+                        display: flex;
+
+                        a:first-child {
+                            display: inline-block;
+                            text-align: center;
+
+                            width: 11rem;
+                            height: 4.2rem;
+                            padding: 1.1rem 2rem;
+                            gap: 1rem;
+                            border-radius: 1rem;
+                            background-color: #2e6ff2;
+
+                            font-size: 1.4rem;
+                            font-weight: 500;
+                            line-height: 2rem;
+                            color: #fff;
+
+                            margin-right: 12px;
+                        }
+                        a:last-child {
+                            display: inline-block;
+                            width: 11rem;
+                            height: 4.2rem;
+                            padding: 1.1rem 2rem;
+                            gap: 1rem;
+                            border-radius: 1rem;
+                            border: 1px solid #d9dbe0;
+                            background-color: #fff;
+
+                            font-size: 1.4rem;
+                            font-weight: 500;
+                            line-height: 2rem;
+                            color: #8d9299;
+                        }
+                    }
+                }
+
+                footer {
+                    background-color: #f3f5fa;
+                    display: flex;
+                    justify-content: center;
+                    padding: 6rem 36.5rem;
+
+                    .footer-box {
+                        width: 119rem;
+                        display: grid;
+                        grid-template-areas:
+                            "logo-copyright logo-copyright"
+                            "company sns";
+
+                        justify-content: space-between;
+
+                        .logo-copyright {
+                            grid-area: logo-copyright;
+                            display: flex;
+                            align-items: center;
+                            gap: 1.6rem;
+                        }
+                        .company-sns {
+                            display: flex;
+                            gap: 36rem;
+                        }
+                        .company {
+                            margin-top: 1.8rem;
+                            grid-area: company;
+                        }
+                        .sns-btn {
+                            grid-area: sns;
+                            display: flex;
+                        }
+
+                        .business-info {
+                            button {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>
+                <a href="#">
+                    <img
+                        src="../images/wenivooks-logo-2.png"
+                        alt="위니브 로고"
+                    />
+                </a>
+            </h1>
+            <button aria-label="검색버튼">
+                <img src="../images/search.png" alt="" />
+            </button>
+        </header>
+        <main>
+            <section class="banner">
+                <div>
+                    <h2>위니북스 새/소/식</h2>
+                    <p>신규 온라인 강의 출시!</p>
+                    <p class="pc-desc">
+                        위니브와 함께하는 파이썬 완전 정복 온라인 강의가
+                        출시되었습니다. <br />
+                        <span>얼리버드 20% 할인 혜택을 놓치지 마세요!</span>
+                    </p>
+                </div>
+                <ol class="slider">
+                    <li class="current"></li>
+                    <li></li>
+                </ol>
+            </section>
+            <section class="content-wrap">
+                <h2 class="sr-only">도서 목록</h2>
+                <ul>
+                    <li>
+                        <article>
+                            <div class="book-box-wrap">
+                                <div class="book-box">
+                                    <img
+                                        src="../images/python-book.png"
+                                        alt="파이썬 부트캠프 표지"
+                                    />
+                                    <div class="content">
+                                        <div class="inner">
+                                            <p>
+                                                주식회사 위니브 | 출판사:
+                                                골든래빗
+                                            </p>
+                                            <h3>파이썬 부트캠프</h3>
+                                            <dl>
+                                                <dt>종이책</dt>
+                                                <dd>24,000원</dd>
+                                            </dl>
+                                            <p>
+                                                이 아이에게 한글과 영어 단어를
+                                                가르치고 싶어 문에는 문,
+                                                door라고 포스트잇을 붙여
+                                                놓았어요. 변수는 이 포스트잇과
+                                                비슷합니다. 담겨져 있는 실체는
+                                                변하지 않아요.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="btn-group">
+                                        <a href="#">Web-book</a>
+                                        <a href="#">온라인 강의</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </li>
+                    <li>
+                        <article>
+                            <div class="book-box-wrap">
+                                <div class="book-box">
+                                    <img
+                                        src=""
+                                        alt="위니브와 함께하는 파이썬 완전 정복 표지"
+                                    />
+                                    <div class="content">
+                                        <div class="inner">
+                                            <p>
+                                                주식회사 위니브 | 출판사:
+                                                골든래빗
+                                            </p>
+                                            <h3>
+                                                위니브와 함께하는 파이썬 완전
+                                                정복
+                                            </h3>
+                                            <dl>
+                                                <dt>종이책</dt>
+                                                <dd>24,000원</dd>
+                                            </dl>
+                                            <p>
+                                                이 아이에게 한글과 영어 단어를
+                                                가르치고 싶어 문에는 문,
+                                                door라고 포스트잇을 붙여
+                                                놓았어요. 변수는 이 포스트잇과
+                                                비슷합니다. 담겨져 있는 실체는
+                                                변하지 않아요.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="btn-group">
+                                        <a href="#">Web-book</a>
+                                        <a href="#">온라인 강의</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </li>
+                </ul>
+            </section>
+        </main>
+        <footer>
+            <div class="footer-box">
+                <div class="logo-copyright">
+                    <a class="footer-logo" href="#">
+                        <img
+                            src="../images/wenivooks-footer-logo-2.png"
+                            alt="위니브 로고"
+                        />
+                    </a>
+                    <p class="copyright">
+                        Copyright &copy; 2023 WENIV All Rights Reserved
+                    </p>
+                </div>
+
+                <div class="company-sns">
+                    <p class="company">
+                        (주)위니브 | 대표: 이호준 | 사업자 번호: 546-86-01737 |
+                        정보통신업 | 주소: 제주 제주시 첨단로 330 세미양빌딩 A동
+                        1층 106호
+                    </p>
+                    <ul class="sns-btn">
+                        <li>
+                            <a href="#"
+                                ><img
+                                    src="../images/icon-Home.png"
+                                    alt="홈 버튼"
+                            /></a>
+                        </li>
+                        <li>
+                            <a href="#"
+                                ><img
+                                    src="../images/icon-inflearn.png"
+                                    alt="인프런 버튼"
+                            /></a>
+                        </li>
+                        <li>
+                            <a href="#"
+                                ><img
+                                    src="../images/icon-youtube.png"
+                                    alt="유튜브 버튼"
+                            /></a>
+                        </li>
+                        <li>
+                            <a href="#"
+                                ><img
+                                    src="../images/icon-naver.png"
+                                    alt="네이버 버튼"
+                            /></a>
+                        </li>
+                        <li>
+                            <a href="#"
+                                ><img
+                                    src="../images/icon-insta.png"
+                                    alt="인스타 버튼"
+                            /></a>
+                        </li>
+                    </ul>
+                </div>
+
+                <section class="business-info">
+                    <button>
+                        (주)위니브 사업자 정보
+                        <img src="../images/icon-down.png" alt="펼치기 버튼" />
+                    </button>
+                </section>
+            </div>
+        </footer>
+    </body>
+</html>
