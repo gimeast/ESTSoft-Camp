@@ -25,21 +25,20 @@ console.log(`출력결과: ${fruits}`);
 console.log(`출력결과 : 안녕하세요, ${name} 님`);
 
 //quiz 7
-const val1 = 3,
-    val2 = 5;
-console.log(`출력결과 : ${calc(val1, val2, "add")}`);
+const num1 = 3,
+    num2 = 5;
+console.log(`출력결과 : ${add(num1, num2)}`);
 
 //quiz 8
-console.log(`출력결과 : ${calc(val1, val2, "mul")}`);
-console.log(`출력결과 : ${calc(val1, val2, "div")}`);
+console.log(`출력결과 : ${mul(num1, num2)}`);
+console.log(`출력결과 : ${div(num1, num2)}`);
 
-function calc(val1, val2, separator) {
-    switch (separator) {
-        case "add":
-            return val1 + val2;
-        case "mul":
-            return val1 * val2;
-        case "div":
-            return val1 / val2;
-    }
+function add(num1, num2) {
+    return num1 + num2;
+}
+function mul(num1, num2) {
+    return num1 * num2;
+}
+function div(num1, num2) {
+    return num1 / num2;
 }
