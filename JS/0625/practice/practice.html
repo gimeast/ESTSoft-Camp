@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Title</title>
+    </head>
+    <body>
+        <form>
+            <h1>em 계산기</h1>
+            <label for="defaultPx">기본 폰트(px)</label>
+            <input type="text" id="defaultPx" />
+
+            <label for="inputPx">원하는 px값</label>
+            <input type="text" id="inputPx" />
+
+            <button type="button">em 값 계산</button>
+        </form>
+
+        <section>
+            <p class="result"></p>
+        </section>
+
+        <script>
+            const defaultPx = document.getElementById("defaultPx");
+            const inputPx = document.getElementById("inputPx");
+            const button = document.querySelector("button");
+            const result = document.querySelector(".result");
+
+            button.addEventListener("click", () => {
+                result.innerText = `${inputPx.value}px = ${inputPx.value / defaultPx.value}em`;
+            });
+        </script>
+    </body>
+</html>

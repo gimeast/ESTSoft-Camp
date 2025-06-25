@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Title</title>
+    </head>
+    <body>
+        <label for="targetText">픽셀: </label>
+        <input type="number" id="targetText" placeholder="target px" />
+        <button type="button" onclick="pxToEm(24)">EM 계산하기</button>
+
+        <p></p>
+        <script>
+            const targetText = document.getElementById("targetText");
+            const button = document.querySelector("button");
+
+            function pxToEm(target) {
+                const em = target / 16;
+                console.log(`${target}px -> ${em}em`);
+                return `${em}em`;
+            }
+
+            button.addEventListener("click", () => {
+                const pTag = document.querySelector("p");
+                pTag.innerText = pxToEm(targetText.value);
+            });
+        </script>
+    </body>
+</html>
