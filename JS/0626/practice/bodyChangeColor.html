@@ -41,10 +41,13 @@
         <script>
             const select = document.querySelector("select");
             select.addEventListener("input", (e) => {
-                select.style.backgroundColor = e.target.value;
+                select.style.backgroundColor = e.target.value
+                    ? e.target.value
+                    : "#fff";
 
-                document.querySelector("body").style.backgroundColor =
-                    e.target.value;
+                document.body.style.backgroundColor = e.target.value
+                    ? e.target.value
+                    : "#fff";
             });
         </script>
     </body>

@@ -109,6 +109,9 @@
 
             const button = document.querySelector("button");
             const input = document.querySelector("input");
+            const result = document.querySelector(".result");
+            const number = document.querySelector(".number");
+            const bottom = document.querySelector(".box__bottom");
 
             input.addEventListener("input", (e) => {
                 if (e.target.value > 10) {
@@ -118,9 +121,6 @@
             });
 
             button.addEventListener("click", () => {
-                const result = document.querySelector(".result");
-                const number = document.querySelector(".number");
-                const bottom = document.querySelector(".box__bottom");
                 const inputVal = Number(input.value);
 
                 bottom.style.display = "flex";
