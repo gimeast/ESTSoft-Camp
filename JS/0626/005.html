@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Title</title>
+    </head>
+    <body>
+        <button onclick="game('가위')">가위</button>
+        <button onclick="game('바위')">바위</button>
+        <button onclick="game('보')">보</button>
+
+        <p></p>
+
+        <script>
+            function game(user) {
+                const computer = Math.floor(Math.random() * 3);
+                const arr = ["가위", "바위", "보"];
+
+                const p = document.querySelector("p");
+                p.innerText = `com: ${arr[computer]}, user: ${user} `;
+
+                if (user === arr[computer]) {
+                    p.innerText += " result: 비김";
+                } else {
+                    if (computer - arr.indexOf(user) === -2) {
+                        p.innerText += " result: 졌잘싸";
+                    } else if (computer - arr.indexOf(user) === 2) {
+                        p.innerText += " result: 승리";
+                    } else {
+                        computer < arr.indexOf(user)
+                            ? (p.innerText += " result: 승리")
+                            : (p.innerText += " result: 졌잘싸");
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>

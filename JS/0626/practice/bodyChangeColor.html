@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Title</title>
+        <style>
+            body {
+                height: 100vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+            div {
+                min-width: 500px;
+                min-height: 300px;
+                border: 1px solid #eee;
+                border-radius: 30px;
+
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <label for="colors">배경색 바꾸기 </label>
+            <select name="colors" id="colors">
+                <option value="">선택하세요</option>
+                <option value="#EBEBF2">EBEBF2</option>
+                <option value="#F2D06B">F2D06B</option>
+                <option value="#F2D888">F2D888</option>
+                <option value="#8C7D4F">8C7D4F</option>
+                <option value="#D97B66">D97B66</option>
+            </select>
+        </div>
+
+        <script>
+            const select = document.querySelector("select");
+            select.addEventListener("input", (e) => {
+                select.style.backgroundColor = e.target.value;
+
+                document.querySelector("body").style.backgroundColor =
+                    e.target.value;
+            });
+        </script>
+    </body>
+</html>

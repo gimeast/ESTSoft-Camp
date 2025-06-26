@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Title</title>
+        <style>
+            .sr-only {
+                position: absolute;
+                width: 1px;
+                height: 1px;
+                padding: 0;
+                margin: -1px;
+                overflow: hidden;
+                clip-path: inset(50%);
+                border: 0;
+                clip: rect(0 0 0 0);
+            }
+            body {
+                background-color: lightblue;
+                height: 100vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+            .box {
+                min-width: 500px;
+                min-height: 300px;
+                border: 1px solid #eee;
+                border-radius: 30px;
+
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            .box__top {
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                align-items: center;
+            }
+            .box__bottom {
+                display: none;
+                align-items: center;
+                gap: 20px;
+            }
+            h1 {
+                color: hotpink;
+            }
+            input {
+                width: 100px;
+                height: 40px;
+                border-color: lightseagreen;
+                border-radius: 10px;
+                text-align: center;
+            }
+            button {
+                width: 80px;
+                height: 50px;
+                border-radius: 20px;
+
+                color: #fff;
+                background-color: lightcoral;
+                font-weight: bold;
+                font-size: 18px;
+            }
+            .number {
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                color: #cf4209;
+                background-color: lightyellow;
+                font-size: 24px;
+                font-weight: bold;
+
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+            .result {
+                font-size: 24px;
+                font-weight: bold;
+                color: #cf4209;
+            }
+        </style>
+    </head>
+    <body>
+        <main class="box">
+            <div class="box__top">
+                <h1>Guess a Number(1~10)</h1>
+                <form>
+                    <label for="input" class="sr-only">숫자: </label>
+                    <input type="number" id="input" />
+                    <button type="button">확인</button>
+                </form>
+            </div>
+
+            <div class="box__bottom">
+                <p class="number"></p>
+                <p class="result"></p>
+            </div>
+        </main>
+
+        <script>
+            const random = Math.ceil(Math.random() * 10);
+            console.log(random);
+
+            const button = document.querySelector("button");
+            const input = document.querySelector("input");
+
+            input.addEventListener("input", (e) => {
+                if (e.target.value > 10) {
+                    input.value = "";
+                    alert("10 미만으로 넣어주세요");
+                }
+            });
+
+            button.addEventListener("click", () => {
+                const result = document.querySelector(".result");
+                const number = document.querySelector(".number");
+                const bottom = document.querySelector(".box__bottom");
+                const inputVal = Number(input.value);
+
+                bottom.style.display = "flex";
+                number.innerText = inputVal;
+
+                if (random === inputVal) {
+                    result.innerText = "정답입니다.";
+                } else if (random > inputVal) {
+                    result.innerText = "너무 작아요.";
+                } else {
+                    result.innerText = "너무 커요.";
+                }
+            });
+        </script>
+    </body>
+</html>
