@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Title</title>
+    </head>
+    <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JS</li>
+        <li>SCSS</li>
+        <li>jQuery</li>
+    </ul>
+    <script>
+        const lis = document.querySelectorAll("li");
+
+        console.log("for");
+        for (let i = 0; i < lis.length; i++) {
+            console.log(lis[i].textContent);
+        }
+        console.log("forEach");
+        lis.forEach((li) => console.log(li.textContent));
+    </script>
+    <body></body>
+</html>

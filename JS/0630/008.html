@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Title</title>
+    </head>
+    <ul id="ul"></ul>
+    <script>
+        const users = ["Daniel", "Don", "donald", "Micheal", "Juliet"];
+        const ul = document.getElementById("ul");
+
+        users.forEach((user) => {
+            const li = document.createElement("li");
+            li.innerText = user;
+
+            const button = document.createElement("button");
+            button.textContent = "❌";
+
+            li.appendChild(button);
+            ul.appendChild(li);
+        });
+    </script>
+    <body></body>
+</html>
