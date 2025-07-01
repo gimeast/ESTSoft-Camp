@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>주문계산기</title>
+    </head>
+    <body>
+        <main>
+            <section>
+                <form>
+                    <h2>My Cafe 주문 계산기</h2>
+
+                    <label for="drink">음료 선택</label>
+                    <select id="drink" required>
+                        <option value="">음료를 선택하세요</option>
+                    </select>
+
+                    <label for="size">사이즈 선택</label>
+                    <select id="size"></select>
+
+                    <label for="amount">수량</label>
+                    <input type="number" id="amount" required />
+
+                    <button type="submit">계산하기</button>
+                </form>
+
+                <p id="result"></p>
+            </section>
+        </main>
+
+        <script>
+            const form = document.querySelector("form");
+            const drink = document.getElementById("drink");
+            const size = document.getElementById("size");
+            const amount = document.getElementById("amount");
+            const result = document.getElementById("result");
+
+            const drinkData = [
+                { name: "아메리카노", price: 2500 },
+                { name: "카페라떼", price: 3000 },
+                { name: "카페모카", price: 3500 },
+                { name: "홍차", price: 2000 },
+                { name: "오렌지주스", price: 2800 },
+            ];
+            const sizeData = [
+                { name: "small", price: 0 },
+                { name: "medium", price: 1000 },
+                { name: "large", price: 2000 },
+            ];
+
+            drinkData.forEach((v) => {
+                const option = document.createElement("option");
+                option.innerText = `${v.name} (₩${v.price})`;
+                option.value = v.price;
+                drink.appendChild(option);
+            });
+
+            sizeData.forEach((v) => {
+                const option = document.createElement("option");
+                option.innerText = `${v.name} (₩${v.price})`;
+                option.value = v.price;
+                size.appendChild(option);
+            });
+
+            form.addEventListener("submit", (e) => {
+                e.preventDefault();
+
+                const selectedDrink = drink.options[drink.selectedIndex].value;
+                const selectedSize = size.options[size.selectedIndex].value;
+
+                if (selectedDrink && selectedSize && amount.value) {
+                    const total =
+                        (Number(selectedDrink) + Number(selectedSize)) *
+                        amount.value;
+
+                    result.innerText = `총 금액: ₩${total} (${amount.value}잔, ${sizeData[size.selectedIndex].name})`;
+
+                    form.reset();
+                }
+            });
+        </script>
+    </body>
+</html>
