@@ -33,8 +33,9 @@ console.log(person);
 // 6. user 객체를 복사하여 age만 30으로 바꾼 새 객체를 만드세요.
 const user = { name: "Ghost", age: 20 };
 // 여기에 코드를 작성하세요
-const copy = Object.assign({}, user);
-copy.age = 30;
+// const copy = Object.assign({}, user);
+// copy.age = 30;
+const copy = Object.assign({}, user, { age: 30 });
 console.log(user, copy);
 
 // 7. 두 객체가 값이 같은지 얕은 비교(shallow equal)하는 함수를 작성하세요.
@@ -72,10 +73,13 @@ console.log(newObj);
 // 11. person 객체의 모든 key와 value를 "key:value" 형태의 문자열 배열로 만드세요.
 const person3 = { name: "Ghost", age: 20 };
 // 여기에 코드를 작성하세요
-const str = Object.entries(person3).map((v) => {
-    return `${v[0]}:${v[1]}`;
+// const str = Object.entries(person3).map((v) => {
+//     return `${v[0]}:${v[1]}`;
+// });
+const str = Object.entries(person3).map(([key, value]) => {
+    return `${key}:${value}`;
 });
-console.log(str);
+console.log("test:", str);
 
 // 12. users 배열에서 나이가 20 이상인 사람만 추출하세요.
 const users2 = [
@@ -110,12 +114,12 @@ console.log(Object.values(obj5).every((num) => !isNaN(num)));
 // 16. users 배열에서 가장 나이가 많은 사람의 이름을 출력하세요.
 const users3 = [
     { name: "Ghost", age: 20 },
-    { name: "Camel", age: 19 },
     { name: "Irangi", age: 22 },
+    { name: "Camel", age: 19 },
 ];
 // 여기에 코드를 작성하세요
-const ageArr = users3.map((v) => v.age);
-console.log(Math.max(...ageArr));
+const maxAgeUser = users3.reduce((acc, cur) => (acc.age > cur.age ? acc : cur));
+console.log("maxAgeUser:", maxAgeUser);
 
 // 17. 생성자 함수로 User 객체를 만들고, 인스턴스를 생성하세요.
 // 여기에 코드를 작성하세요
