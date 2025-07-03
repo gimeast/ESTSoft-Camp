@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Title</title>
+        <style>
+            .container {
+                width: 100%;
+                max-width: 600px;
+                border: 1px solid #d8d8d8;
+                border-radius: 10px;
+                padding: 20px;
+                margin: 50px auto;
+                position: relative;
+                height: 500px;
+            }
+            img {
+                width: 250px;
+                height: 250px;
+                position: absolute;
+                left: 30px;
+                bottom: 30px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <img src="./images/irangi_06.png" alt="" />
+        </div>
+
+        <script>
+            const img = document.querySelector("img");
+            const imgBox = img.getBoundingClientRect();
+            console.log(imgBox);
+            console.log(`img width: ${imgBox.width}`);
+            console.log(`img height: ${imgBox.height}`);
+
+            const distance = 10;
+            let uri = "";
+            window.addEventListener("keydown", (e) => {
+                console.log(e.code);
+                if (e.code === "ArrowRight") {
+                    uri = "ArrowRight";
+                    img.style.left = `${img.offsetLeft + distance}px`;
+                } else if (e.code === "ArrowLeft") {
+                    uri = "ArrowLeft";
+                    img.style.left = `${img.offsetLeft - distance}px`;
+                }
+                if (e.code.includes("Arrow")) {
+                    img.setAttribute("src", `./images/irangi_${uri}.png`);
+                }
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Title</title>
+        <style>
+            img {
+                width: 300px;
+            }
+        </style>
+    </head>
+    <body>
+        <img src="./images/irangi_01.png" alt="어려워요?" />
+
+        <div class="thumbs">
+            <button class="btn1">01</button>
+            <button class="btn2">02</button>
+            <button class="btn3">03</button>
+        </div>
+        <script>
+            //이미지에 마우스를 올리면 irangi_02.png / alt='Dont give up'
+            const img = document.querySelector("img");
+            const [btn1, btn2, btn3] = document.querySelectorAll("button");
+
+            btn1.addEventListener("click", () => {
+                img.setAttribute("src", "./images/irangi_01.png");
+                img.setAttribute("alt", "어려워요?");
+            });
+            btn2.addEventListener("click", () => {
+                img.setAttribute("src", "./images/irangi_02.png");
+                img.setAttribute("alt", "Dont give up");
+            });
+            btn3.addEventListener("click", () => {
+                img.setAttribute("src", "./images/irangi_03.png");
+                img.setAttribute("alt", "");
+            });
+
+            // img.addEventListener("mouseenter", () => {
+            //     img.setAttribute("src", "./images/irangi_02.png");
+            //     img.setAttribute("alt", "Dont give up");
+            // });
+            //
+            // img.addEventListener("mouseleave", () => {
+            //     img.setAttribute("src", "./images/irangi_01.png");
+            //     img.setAttribute("alt", "어려워요?");
+            // });
+        </script>
+    </body>
+</html>

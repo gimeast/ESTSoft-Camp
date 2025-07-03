@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Title</title>
+        <style>
+            button {
+            }
+            button:hover {
+                background-color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <button id="btn1">마우스를 올려보세요</button>
+        <script>
+            const btn1 = document.querySelector("#btn1");
+
+            btn1.addEventListener("mouseenter", (e) => {
+                e.target.innerText = "마우스 IN";
+            });
+            btn1.addEventListener("mouseleave", (e) => {
+                e.target.innerText = "마우스를 올려보세요";
+            });
+        </script>
+    </body>
+</html>
