@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./css/dom.css" />
+        <title>Title</title>
+    </head>
+    <body>
+        <main class="keyboard-container">
+            <h1 class="keyboard-title">키보드 이벤트 실습</h1>
+            <section class="keyboard-section">
+                <div class="keyboard-instruction">
+                    키보드를 아무거나 눌러보세요!
+                </div>
+                <div class="keyboard-event-info" id="eventInfo">
+                    <div>키: <span id="keyName">-</span></div>
+                    <div>코드: <span id="keyCode">-</span></div>
+                    <div>이벤트 타입: <span id="eventType">-</span></div>
+                    <div>Shift: <span id="shiftKey">-</span></div>
+                    <div>Ctrl: <span id="ctrlKey">-</span></div>
+                    <div>Alt: <span id="altKey">-</span></div>
+                    <div>Meta: <span id="metaKey">-</span></div>
+                </div>
+                <div class="keyboard-history-label">최근 입력한 키</div>
+                <div class="keyboard-history" id="keyHistory"></div>
+            </section>
+        </main>
+
+        <script>
+            const keyName = document.querySelector("#keyName");
+            const keyCode = document.querySelector("#keyCode");
+            const eventType = document.querySelector("#eventType");
+            const shiftKey = document.querySelector("#shiftKey");
+            const ctrlKey = document.querySelector("#ctrlKey");
+            const altKey = document.querySelector("#altKey");
+            const metaKey = document.querySelector("#metaKey");
+            const keyHistory = document.querySelector("#keyHistory");
+            const histories = [];
+
+            function updateEventInfo(e, type) {
+                addToHistory(e, type);
+                keyName.textContent = e.key;
+                keyCode.textContent = e.code;
+                eventType.textContent = type;
+                shiftKey.textContent = e.shiftKey ? "O" : "-";
+                ctrlKey.textContent = e.ctrlKey ? "O" : "-";
+                altKey.textContent = e.altKey ? "O" : "-";
+                metaKey.textContent = e.metaKey ? "O" : "-";
+            }
+
+            function addToHistory(e, type) {
+                const display = `<span class="key-item">${e.key}</span>`;
+                histories.unshift(display);
+                histories.length > 20 && histories.pop();
+                keyHistory.innerHTML = histories.join();
+            }
+
+            window.addEventListener("keydown", (e) => {
+                updateEventInfo(e, "keydown");
+
+                if (e.ctrlKey && e.key === "Enter") {
+                    console.log("ctrl + enter 키가 눌렸습니다");
+                }
+            });
+        </script>
+    </body>
+</html>

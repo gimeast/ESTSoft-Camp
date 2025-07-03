@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Title</title>
+        <link rel="stylesheet" href="./css/dom.css" />
+        <style>
+            .btn {
+                background-color: #e8e8e8;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="all-container">
+            <div class="menu-container">
+                <button class="btn">
+                    <img src="./images/irangi_01.png" alt="irangi" />
+                </button>
+                <button class="btn">
+                    <img src="./images/irangi_02.png" alt="irangi" />
+                </button>
+                <button class="btn">
+                    <img src="./images/irangi_03.png" alt="irangi" />
+                </button>
+            </div>
+        </div>
+
+        <ul id="list">
+            <li>Apple</li>
+            <li>Mango</li>
+            <li>Banana</li>
+        </ul>
+
+        <p id="p">
+            Hello world
+            <span>SPAN</span>
+            <strong>STRONG</strong>
+        </p>
+
+        <div id="testBox">
+            <strong>STRONG</strong>
+            <em>EM</em>
+            <p>p</p>
+        </div>
+
+        <script>
+            const menu = document.querySelector(".menu-container");
+            const p = document.querySelector("#p");
+            const testBox = document.querySelector("#testBox");
+
+            testBox.addEventListener("click", (e) => {
+                const isTarget = e.target.nodeName === "EM";
+                if (isTarget) {
+                    console.log("클릭");
+                }
+            });
+
+            function doSomething(e) {
+                const isTarget = e.target.nodeName === "STRONG";
+                if (isTarget) {
+                    console.log("That's Strong");
+                }
+            }
+            p.addEventListener("click", doSomething);
+
+            menu.addEventListener("click", menuHandler);
+
+            function menuHandler(e) {
+                console.log("asdsda", e.target, e.currentTarget);
+                const nodeName = e.target.nodeName;
+
+                if (nodeName === "BUTTON") {
+                    const contents = e.target.innerHTML;
+                    console.log(contents);
+                }
+            }
+
+            const list = document.querySelector("#list");
+            list.addEventListener("click", (e) => {
+                if (e.target.nodeName === "LI") {
+                    console.log(e.target.innerText);
+                }
+            });
+        </script>
+    </body>
+</html>

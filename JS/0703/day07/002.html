@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./css/dom.css" />
+        <title>Title</title>
+    </head>
+    <body>
+        <div class="container">
+            <h1>DOM 이벤트</h1>
+            <button id="alertBtn">클릭 이벤트 (Alert)</button>
+            <div class="input-group">
+                <label for="inputBox">실시간 입력 이벤트</label>
+                <input type="text" id="inputBox" placeholder="여기에 입력..." />
+                <div id="output"></div>
+            </div>
+            <div class="color-box-label">마우스를 올려보세요</div>
+            <div id="colorBox">Hover me!</div>
+        </div>
+
+        <script>
+            const alertBtn = document.querySelector("#alertBtn");
+            const inputBox = document.querySelector("#inputBox");
+            const output = document.querySelector("#output");
+            const colorBox = document.querySelector("#colorBox");
+
+            colorBox.addEventListener("mouseenter", (e) => {
+                e.target.classList.add("active");
+            });
+            colorBox.addEventListener("mouseleave", (e) => {
+                e.target.classList.remove("active");
+            });
+
+            alertBtn.addEventListener("click", () => alert("버튼클릭"));
+            inputBox.addEventListener("input", (e) => {
+                output.innerText = e.target.value;
+            });
+        </script>
+    </body>
+</html>
