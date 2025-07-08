@@ -1,15 +1,16 @@
 //클로저: 외부에서 내부함수가 참조하던 변수에 계속 접근할 수 있는 현상
 function outer() {
-    const outVar = "outer 변수";
+    let outVar = 0;
 
     function inner() {
-        console.log(outVar);
+        console.log("inner:", outVar++);
     }
 
     return inner;
 }
 
 const innerFunc = outer();
+innerFunc();
 innerFunc();
 
 //데이터 은닉
@@ -97,7 +98,3 @@ handleClick();
 const throttledClick = throttle(handleClick, 1000);
 const button = document.getElementById("button");
 button.addEventListener("click", throttledClick);
-
-//디바운싱: 일정 시간 동안 추가입력이 없을때 한번만 실행한다.
-//=> 마지막 입력 후 일정 시간이 지나면 실행
-//예) 검색창에 입력할때 타이핑 멈춘 후에만 검색 실행하고 싶을때 또는 유효성 검사
