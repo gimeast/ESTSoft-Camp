@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Title</title>
+        <style>
+            body {
+                background-color: lightgray;
+            }
+            #blogList {
+                background-color: #fff;
+                box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+                border: 1px solid gray;
+                border-radius: 30px;
+                padding: 0;
+            }
+            li {
+                list-style: none;
+                padding: 20px;
+            }
+            li:not(:last-of-type) {
+                border-bottom: 1px solid gray;
+            }
+            li:hover {
+                transition: 0.2s ease-in-out;
+                background-color: lightsteelblue;
+            }
+            strong,
+            time {
+                color: lightgray;
+            }
+            p {
+                color: lightseagreen;
+            }
+        </style>
+    </head>
+    <body>
+        <ul id="blogList"></ul>
+        <script src="./practice-fetch.js"></script>
+    </body>
+</html>
