@@ -29,7 +29,6 @@ function loadMemoStorage() {
     // 데이터가 있다면 memoData 배열에 저장
     // 화면에 메모 목록 출력
     memoData = JSON.parse(localStorage.getItem(MEMO_KEY)) || [];
-
     renderMemo();
 }
 
@@ -40,7 +39,8 @@ function renderMemo() {
     // 메모가 있으면 반복문으로 각 메모를 화면에 출력
     // 삭제 버튼에 이벤트 리스너 추가
     memoList.innerHTML = "";
-    if (!memoData?.length) {
+    console.log(memoData);
+    if (!memoData.length) {
         const li = document.createElement("li");
         li.innerText = "작성된 메모가 없습니다";
         memoList.appendChild(li);
@@ -61,11 +61,15 @@ function renderMemo() {
 // TODO 3: 로컬스토리지에 메모 데이터 저장하는 함수
 function saveMemoStorage() {
     // memoData 배열을 JSON 문자열로 변환해서 로컬스토리지에 저장
-    const memo = { title: titleInput.value, content: contentInput.value };
+    const memo = {
+        title: titleInput.value.trim(),
+        content: contentInput.value.trim(),
+    };
     if (memo.title && memo.content) {
         memoData.unshift(memo);
         console.log(memoData);
-        setData();
+        localStorageUpdate();
+        loadMemoStorage();
     }
 }
 
@@ -79,7 +83,14 @@ memoForm.addEventListener("submit", (e) => {
     // 로컬스토리지 저장
     // 입력 필드 초기화
     // 메모 목록 재렌더링
-    saveMemoStorage();
+    e.preventDefault();
+    if (!titleInput.value.trim()) {
+        alert("제목이 비어있어요");
+    } else {
+        saveMemoStorage();
+    }
+    titleInput.value = "";
+    contentInput.value = "";
 });
 memoList.addEventListener("click", (e) => {
     if (e.target.tagName === "BUTTON") {
@@ -95,11 +106,11 @@ function deleteMemo(index) {
     // 로컬스토리지 업데이트
     // 메모 목록 재렌더링
     memoData.splice(index, 1);
-    setData();
+    localStorageUpdate();
     loadMemoStorage();
 }
 
-function setData() {
+function localStorageUpdate() {
     localStorage.setItem(MEMO_KEY, JSON.stringify(memoData));
 }
 
