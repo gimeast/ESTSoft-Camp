@@ -1,21 +1,95 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <h1>나의 메모장</h1>
-    <form id="memo-form">
-      <label for="title-input">제목</label>
-      <input type="text" id="title-input" required />
-      <label for="content-input">내용</label>
-      <textarea name="content-input" id="content-input"></textarea>
-      <button type="submit">저장하기</button>
-    </form>
-    <!-- 작성된 메모 목록 -->
-    <ul id="memo-list"></ul>
-    <script src="script.js"></script>
-  </body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            .sr-only {
+                position: absolute;
+                width: 1px;
+                height: 1px;
+                padding: 0;
+                margin: -1px;
+                overflow: hidden;
+                clip-path: inset(50%);
+                border: 0;
+                clip: rect(0 0 0 0);
+            }
+            form {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                width: 400px;
+            }
+            #title-input {
+                width: 400px;
+                height: 50px;
+                background-color: yellow;
+                border: none;
+                border-bottom: 1px solid lightgray;
+                text-align: center;
+                font-size: 30px;
+            }
+            textarea {
+                width: 400px;
+                height: 300px;
+                background-color: yellow;
+                border: none;
+                font-size: 20px;
+            }
+            button {
+                height: 50px;
+                background-color: #fff;
+                border: none;
+                cursor: pointer;
+            }
+            #memo-list {
+                padding: 0;
+                display: flex;
+                flex-wrap: wrap;
+            }
+            #memo-list li {
+                background-color: yellow;
+                padding: 10px;
+                margin: 20px 20px 20px 0;
+                width: 400px;
+                word-wrap: break-word;
+                list-style: none;
+            }
+            .memo-item {
+                display: flex;
+                flex-direction: column;
+            }
+            .delete-btn {
+                background: none;
+                border: none;
+                cursor: pointer;
+                align-self: flex-end;
+                margin-right: 10px;
+                font-size: 20px;
+            }
+            .title {
+                font-size: 30px;
+                border-bottom: 1px solid lightgray;
+                text-align: center;
+            }
+            .content {
+                font-size: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>나의 메모장</h1>
+        <form id="memo-form">
+            <label class="sr-only" for="title-input">제목</label>
+            <input type="text" id="title-input" required />
+            <label class="sr-only" for="content-input">내용</label>
+            <textarea name="content-input" id="content-input"></textarea>
+            <button type="submit">저장하기</button>
+        </form>
+        <!-- 작성된 메모 목록 -->
+        <ul id="memo-list"></ul>
+        <script src="script.js"></script>
+    </body>
 </html>

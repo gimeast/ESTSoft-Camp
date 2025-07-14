@@ -51,9 +51,12 @@ function renderMemo() {
         li.setAttribute("data-idx", idx);
 
         li.innerHTML = `
-            <div class="title">${memo.title}</div>
-            <div class="content">${memo.content}</div>
-            <button type="button" class="delete-btn">X</button>`;
+            <div class="memo-item">
+                <button type="button" class="delete-btn">X</button>
+                <h3 class="title">${memo.title}</h3>
+                <p class="content">${memo.content}</p>
+            </div>
+            `;
         memoList.appendChild(li);
     });
 }
