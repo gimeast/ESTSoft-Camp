@@ -41,6 +41,10 @@ function calculator(operation) {
         // const result = ?;
         const result = operation(num1, num2);
         // 계산 결과 유효성 검사를 작성하세요
+        //isFinite가 isNaN도 체크하기때문에 isNaN은 생략해도 된다 하지만 명확하게 보여주기 위해 작성하였다.
+        if (isNaN(result) || !isFinite(result)) {
+            throw new Error("계산 결과가 유한하지 않습니다.");
+        }
         // 결과를 화면에 표시하세요
         resultText.innerText = result;
     } catch (error) {
