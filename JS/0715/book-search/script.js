@@ -11,7 +11,7 @@ async function searchBooks() {
     // 검색어 가져오기
     const search = $searchInput.value;
     // 빈 검색어 확인
-    if (!search) {
+    if (!search.trim()) {
         alert("검색어를 입력해 주세요");
         return;
     }
@@ -56,14 +56,16 @@ $searchForm.addEventListener("submit", async (e) => {
 function renderBooks(books) {
     // 기존 내용 삭제
     // 책 정보를 화면에 표시
-    $bookList.innerHTML =
-        books.length === 0
-            ? "<li>검색 결과가 없습니다.</li>"
-            : books
-                  .map((book) => {
-                      return `<li><h3>${book.title}</h3><img src="${book.thumbnail}" alt=""/><p> 저자: ${book.authors}</p></li>`;
-                  })
-                  .join("");
+    if (books.length === 0) {
+        $bookList.innerHTML = "<li>검색 결과가 없습니다.</li>";
+        $bookList.style.display = "block";
+        return;
+    }
+    $bookList.innerHTML = books
+        .map((book) => {
+            return `<li><h3>${book.title}</h3><img src="${book.thumbnail}" alt=""/><p> 저자: ${book.authors}</p></li>`;
+        })
+        .join("");
 }
 
 function pagination() {}
