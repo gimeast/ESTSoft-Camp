@@ -45,3 +45,12 @@ function maskPassword(pwd) {
 console.log(maskPassword(password1));
 console.log(maskPassword(password2));
 console.log(maskPassword(password3));
+
+const html = `
+<div class="container" data-id="12345" data-name="홍길동">
+    <span data-role="admin" id="user1">사용자1</span>
+    <p data-msg="안녕하세요!" data-count="100">내용</p>
+</div>
+`;
+let regx = /(?<=data-\w+=")[\w가-힣!]+"/g;
+console.log(html.match(regx));

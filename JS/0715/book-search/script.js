@@ -6,6 +6,9 @@ const $bookList = document.getElementById("book-list");
 const $searchForm = document.getElementById("search-form");
 const $searchInput = document.getElementById("search-input");
 
+let currentPage = 1;
+const size = 10;
+
 // TODO 1: 책 검색 함수 구현
 async function searchBooks() {
     // 검색어 가져오기
@@ -13,13 +16,14 @@ async function searchBooks() {
     // 빈 검색어 확인
     if (!search.trim()) {
         alert("검색어를 입력해 주세요");
+        $searchInput.focus();
         return;
     }
 
     // API 호출
     try {
         // fetch를 사용해서 API 호출하기
-        const url = `${BOOK_URL}?query=${encodeURIComponent(search)}&size=10`;
+        const url = `${BOOK_URL}?query=${encodeURIComponent(search)}&page=${currentPage}&size=${size}`;
         const options = {
             method: "GET",
             headers: {
@@ -36,7 +40,9 @@ async function searchBooks() {
         // 결과가 없다면 '검색 결과가 없습니다.' 메시지 표시
         // 검색 결과를 화면에 표시하기
         const books = data.documents;
+        const meta = data.meta;
         renderBooks(books);
+        renderPagination(meta);
     } catch (error) {
         // 에러 메시지 콘솔 및 화면에 표시하기
         console.error(error);
@@ -61,14 +67,21 @@ function renderBooks(books) {
         $bookList.style.display = "block";
         return;
     }
+    $bookList.style.display = "grid";
     $bookList.innerHTML = books
         .map((book) => {
-            return `<li><h3>${book.title}</h3><img src="${book.thumbnail}" alt=""/><p> 저자: ${book.authors}</p></li>`;
+            return `<li><h3>${book.title}</h3><img src="${book.thumbnail}" alt=""/><p> 저자: ${book.authors.join(", ")}</p></li>`;
         })
         .join("");
 }
 
-function pagination() {}
+function renderPagination(meta) {
+    const $pagination = document.getElementById("pagination");
+    console.log("meta", meta);
+    // is_end: false;
+    // pageable_count: 289;
+    // total_count: 289;
+}
 
 // 🔍 구현 힌트
 /*
