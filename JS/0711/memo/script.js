@@ -39,11 +39,12 @@ function renderMemo() {
     // 메모가 있으면 반복문으로 각 메모를 화면에 출력
     // 삭제 버튼에 이벤트 리스너 추가
     memoList.innerHTML = "";
-    console.log(memoData);
+    const fragment = document.createDocumentFragment();
+
     if (!memoData.length) {
         const li = document.createElement("li");
         li.innerText = "작성된 메모가 없습니다";
-        memoList.appendChild(li);
+        fragment.appendChild(li);
     }
 
     memoData.forEach((memo, idx) => {
@@ -57,8 +58,10 @@ function renderMemo() {
                 <p class="content">${memo.content}</p>
             </div>
             `;
-        memoList.appendChild(li);
+        fragment.appendChild(li);
     });
+
+    memoList.appendChild(fragment);
 }
 
 // TODO 3: 로컬스토리지에 메모 데이터 저장하는 함수
