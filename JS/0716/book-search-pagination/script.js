@@ -70,10 +70,7 @@ async function searchBooks(page = 1) {
         // 2-8. 페이지네이션 정보 업데이트
         // totalPages(data.meta.pageable_count 활용)
         const itemCounts = data.meta.pageable_count;
-        totalPages = Math.min(
-            BLOCK_SIZE * PAGE_SIZE,
-            Math.ceil(itemCounts / PAGE_SIZE)
-        );
+        totalPages = Math.ceil(itemCounts / PAGE_SIZE);
         console.log("totalPages", totalPages);
         // currentPage 업데이트
         currentPage = page;
