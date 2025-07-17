@@ -81,7 +81,7 @@ function renderPagination() {
     if (currentBlock > 0) {
         const li = document.createElement("li");
         li.innerHTML = `<button onclick="searchBooks(${
-            currentStartPage - BLOCK_SIZE
+            currentStartPage - 1
         })"><</button>`;
         $pagination.appendChild(li);
     }

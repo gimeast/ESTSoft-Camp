@@ -122,7 +122,7 @@ function renderPagination() {
         const prev = document.createElement("button");
         prev.textContent = "<";
         prev.addEventListener("click", () => {
-            searchBooks(startPage - BLOCK_SIZE);
+            searchBooks(startPage - 1);
         });
         $pagination.appendChild(prev);
     }
