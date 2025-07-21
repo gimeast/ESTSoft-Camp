@@ -1,9 +1,15 @@
 {
   "devDependencies": {
     "nodemon": "^3.1.10",
-    "prettier": "3.6.0"
+    "prettier": "3.6.0",
+    "sass": "^1.89.2"
   },
   "dependencies": {
     "lodash": "^4.17.21"
+  },
+  "scripts": {
+    "sass": "sass --watch CSS/Sass/example/scss:CSS/Sass/example/src --style compressed --source-map",
+    "sass:build": "sass CSS/Sass/example/scss:CSS/Sass/example/src --style compressed --source-map"
   }
+
 }

@@ -1,0 +1,19 @@
+@use "variables";
+@use "mixin";
+
+.text-container {
+  padding: 40px;
+  background-color: variables.$main-color;
+  height: 100%;
+}
+
+.text-box {
+  margin-bottom: 50px;
+  h2 {
+    @include mixin.font-style(variables.$font-main, variables.$font-22, variables.$dark-black);
+  }
+  p {
+    @include mixin.font-style(variables.$font-main, variables.$font-15, variables.$light-black);
+    margin: 0;
+  }
+}
