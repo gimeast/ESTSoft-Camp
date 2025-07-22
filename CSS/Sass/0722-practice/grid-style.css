@@ -1,0 +1,56 @@
+/* 시각적 확인을 위한 스타일 */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.row {
+    margin-bottom: 10px;
+}
+
+.row::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+/* 배경색으로 컬럼 구분 */
+[class*="col-"] {
+    background-color: #3498db;
+    color: white;
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    box-sizing: border-box;
+}
+
+/* 번갈아가며 다른 색상 */
+[class*="col-"]:nth-child(odd) {
+    background-color: #2980b9;
+}
+
+/* 호버 효과 */
+[class*="col-"]:hover {
+    background-color: #1abc9c;
+}
+
+/* 모바일에서 확인하기 쉽게 */
+@media (max-width: 768px) {
+    [class*="col-"] {
+        border: 2px solid white;
+    }
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #ecf0f1;
+}

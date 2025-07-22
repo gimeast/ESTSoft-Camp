@@ -8,8 +8,8 @@
     "lodash": "^4.17.21"
   },
   "scripts": {
-    "sass": "sass --watch CSS/Sass/example/scss:CSS/Sass/example/src --style compressed --source-map",
-    "sass:build": "sass CSS/Sass/example/scss:CSS/Sass/example/src --style compressed --source-map"
+    "sass": "sass --watch CSS/Sass/0722-practice/grid.scss:CSS/Sass/0722-practice/grid.css --style compressed --source-map",
+    "sass:build": "sass CSS/Sass/0722-practice/grid.scss:CSS/Sass/0722-practice/grid.css --style compressed --source-map"
   }
 
 }
