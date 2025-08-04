@@ -1,4 +1,5 @@
 import "./App.css";
+import { useEffect, useRef, useState } from "react";
 
 function Achievement({ achievement }) {
     return <span className="achievement">{achievement}</span>;
@@ -37,12 +38,34 @@ function Top({ character }) {
         </>
     );
 }
+function Img({ src }) {
+    const [isLoading, setIsLoading] = useState(true);
+    const imgRef = useRef(null);
+
+    useEffect(() => {
+        const img = imgRef.current;
+        img.addEventListener("load", () => setIsLoading(false));
+
+        return () => img.removeEventListener("load", () => setIsLoading(false));
+    }, [src]);
+    return (
+        <>
+            {isLoading && <span className="loading"></span>}
+            <img
+                className={isLoading ? "hide" : ""}
+                src={src}
+                alt=""
+                ref={imgRef}
+            />
+        </>
+    );
+}
 
 function Card({ character }) {
     return (
         <div className="card">
             <div className="img-wrap">
-                <img src={character.img} alt="" />
+                <Img src={character.img} />
             </div>
             <Top character={character} />
             <div className="detail">
