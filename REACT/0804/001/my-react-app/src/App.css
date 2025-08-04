@@ -1,0 +1,107 @@
+.cards {
+    margin-top: 300px;
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+
+    .card:hover {
+        transform: translate(-10px, -10px);
+        cursor: pointer;
+    }
+    .card {
+        width: 450px;
+        padding: 20px;
+        border-radius: 20px;
+        transition: 0.6s;
+        box-shadow:
+            rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+            rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+
+        & .top {
+            display: flex;
+            justify-content: space-between;
+        }
+        & .img-wrap {
+            display: flex;
+            justify-content: center;
+        }
+        & img {
+            width: 150px;
+            border-radius: 50%;
+        }
+        & .name {
+            font-size: 24px;
+        }
+        & .top-right {
+            display: flex;
+            align-items: center;
+        }
+        & .active {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: green;
+            margin-right: 10px;
+        }
+        & .not-active {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: red;
+            margin-right: 10px;
+        }
+        & .gold {
+            color: gold;
+            font-weight: 700;
+        }
+        & .yellow {
+            color: yellow;
+            font-weight: 700;
+        }
+        & .green {
+            color: green;
+            font-weight: 700;
+        }
+        & .gray {
+            color: gray;
+            font-weight: 700;
+        }
+        & .normal {
+            color: green;
+            font-weight: 700;
+        }
+        & .warn {
+            color: red;
+            font-weight: 700;
+        }
+        & .skills {
+            display: flex;
+            gap: 10px;
+        }
+        & .skill {
+            background-color: lightcoral;
+            border-radius: 10px;
+            height: 30px;
+
+            display: inline-flex;
+            align-items: center;
+            padding: 0 10px;
+        }
+
+        & .achievements {
+            display: flex;
+            gap: 10px;
+        }
+        & .achievement {
+            background-color: lightyellow;
+            border-radius: 10px;
+            height: 30px;
+
+            display: inline-flex;
+            align-items: center;
+            padding: 0 10px;
+        }
+    }
+}
