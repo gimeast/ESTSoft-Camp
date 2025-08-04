@@ -109,7 +109,7 @@
             height: 30px;
             border-radius: 50%;
             border: 3px solid gray;
-            border-top: #fff;
+            border-top-color: #fff;
             animation: spin 1s ease-in-out infinite;
         }
         & .hide {
