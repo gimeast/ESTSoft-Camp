@@ -2,14 +2,15 @@
   "devDependencies": {
     "nodemon": "^3.1.10",
     "prettier": "3.6.0",
-    "sass": "^1.89.2"
+    "sass": "^1.89.2",
+    "sass-embedded": "^1.89.2"
   },
   "dependencies": {
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.21",
+    "styled-components": "^6.1.19"
   },
   "scripts": {
     "sass": "sass --watch CSS/Sass/0722-practice/grid.scss:CSS/Sass/0722-practice/grid.css --style compressed --source-map",
     "sass:build": "sass CSS/Sass/0722-practice/grid.scss:CSS/Sass/0722-practice/grid.css --style compressed --source-map"
   }
-
 }
