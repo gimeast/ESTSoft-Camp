@@ -100,8 +100,12 @@ function Header() {
                     <li>
                         <Link to="/">main</Link>
                     </li>
-                    <li>About</li>
-                    <li>Contact</li>
+                    <li>
+                        <Link to="/about">About</Link>
+                    </li>
+                    <li>
+                        <Link to="/contact">Contact</Link>
+                    </li>
                     <li>
                         {user ? (
                             <Logout />
@@ -114,11 +118,35 @@ function Header() {
         </header>
     );
 }
+function Contact() {
+    return (
+        <div>
+            <h2>Contact</h2>
+        </div>
+    );
+}
+function About() {
+    return (
+        <div>
+            <h2>about</h2>
+        </div>
+    );
+}
 function Main() {
     return (
         <main>
+            main
             <Outlet />
         </main>
+    );
+}
+function Layout() {
+    return (
+        <div>
+            <Header />
+            <Main />
+            <Footer />
+        </div>
     );
 }
 function Footer() {
@@ -130,12 +158,13 @@ function App() {
     return (
         <UserContext.Provider value={{ user, setUser }}>
             <BrowserRouter>
-                <Header />
-                <Main />
-                <Footer />
                 <Routes>
-                    <Route path="/" element={<Main />} />
-                    <Route path="/login" element={<Login />} />
+                    <Route path="/" element={<Layout />}>
+                        <Route index element={<div>홈페이지 콘텐츠</div>} />
+                        <Route path="/login" element={<Login />} />
+                        <Route path="/about" element={<About />} />
+                        <Route path="/contact" element={<Contact />} />
+                    </Route>
                 </Routes>
             </BrowserRouter>
         </UserContext.Provider>

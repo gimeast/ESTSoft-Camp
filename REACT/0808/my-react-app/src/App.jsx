@@ -1,145 +1,45 @@
-import { createContext, useContext, useReducer, useState } from "react";
-import {
-    BrowserRouter,
-    Link,
-    Outlet,
-    Route,
-    Routes,
-    useNavigate,
-} from "react-router-dom";
+import React, { useState, memo, useMemo, useCallback } from "react";
 
-const users = [
-    { id: 1, username: "user1", password: "1234", name: "김철수" },
-    { id: 2, username: "user2", password: "5678", name: "이영희" },
-    { id: 3, username: "admin", password: "admin", name: "관리자" },
-];
+const UserProfile = memo(({ user, hobbies, onUpdate }) => {
+    console.log("UserProfile 렌더링됨");
+    return (
+        <div>
+            <p>
+                이름: {user.name}, 나이: {user.age}
+            </p>
+            <p>취미: {hobbies.join(", ")}</p>
+            <button onClick={() => onUpdate("프로필 업데이트됨")}>
+                업데이트
+            </button>
+        </div>
+    );
+});
 
-const UserContext = createContext();
+export default function App() {
+    const [message, setMessage] = useState("");
+    const [counter, setCounter] = useState(0);
 
-function Logout() {
-    const { user, setUser } = useContext(UserContext);
+    console.log("App 렌더링됨");
 
-    function logout() {
-        setUser(null);
-    }
-
-    return <button onClick={logout}>로그아웃</button>;
-}
-
-function Login() {
-    const { user, setUser } = useContext(UserContext);
-
-    const [loginFail, setLoginFail] = useState("");
-    const [state, dispatch] = useReducer(reducer, {
-        username: "",
-        password: "",
-    });
-    const { username, password } = state;
-
-    const navigate = useNavigate();
-
-    if (user) {
-        navigate("/");
-    }
-
-    function reducer(state, action) {
-        return { ...state, [action.name]: action.value };
-    }
-
-    function onChange(e) {
-        dispatch(e.target);
-    }
-
-    function login(e) {
-        e.preventDefault();
-
-        const findUser = users.find(
-            (v) => v.username === username && v.password === password
-        );
-        console.log("findUser", findUser);
-
-        if (findUser) {
-            setUser(findUser);
-        } else {
-            setLoginFail("아이디 또는 비밀번호가 틀렸습니다");
-        }
-    }
+    // TODO: 아래 객체들이 매번 새로 생성되어 불필요한 리렌더링 발생
+    const user = useMemo(() => ({ name: "김철수", age: 25 }), []);
+    const hobbies = useMemo(() => ["독서", "영화감상"], []);
+    const handleUpdate = useCallback((msg) => {
+        setMessage(msg);
+    }, []);
 
     return (
-        <form onSubmit={login}>
-            <fieldset>
-                <legend>login</legend>
-                username:
-                <input
-                    type="text"
-                    name="username"
-                    value={username}
-                    onChange={onChange}
-                />
-                <br />
-                password:
-                <input
-                    type="text"
-                    name="password"
-                    value={password}
-                    onChange={onChange}
-                />
-                <br />
-                {loginFail}
-            </fieldset>
-            <button type="submit">로그인</button>
-        </form>
-    );
-}
-function Header() {
-    const { user } = useContext(UserContext);
-    return (
-        <header>
-            <nav>
-                <ul>
-                    <li>
-                        <Link to="/">main</Link>
-                    </li>
-                    <li>About</li>
-                    <li>Contact</li>
-                    <li>
-                        {user ? (
-                            <Logout />
-                        ) : (
-                            <Link to="/login">로그인하러가기</Link>
-                        )}
-                    </li>
-                </ul>
-            </nav>
-        </header>
-    );
-}
-function Main() {
-    return (
-        <main>
-            <Outlet />
-        </main>
-    );
-}
-function Footer() {
-    return <footer>footer입니다.</footer>;
-}
+        <div style={{ padding: "20px" }}>
+            <h2>카운터: {counter}</h2>
+            <button onClick={() => setCounter(counter + 1)}>카운터 증가</button>
 
-function App() {
-    const [user, setUser] = useState();
-    return (
-        <UserContext.Provider value={{ user, setUser }}>
-            <BrowserRouter>
-                <Header />
-                <Main />
-                <Footer />
-                <Routes>
-                    <Route path="/" element={<Main />} />
-                    <Route path="/login" element={<Login />} />
-                </Routes>
-            </BrowserRouter>
-        </UserContext.Provider>
+            <p>메시지: {message}</p>
+
+            <UserProfile
+                user={user}
+                hobbies={hobbies}
+                onUpdate={handleUpdate}
+            />
+        </div>
     );
 }
-
-export default App;
