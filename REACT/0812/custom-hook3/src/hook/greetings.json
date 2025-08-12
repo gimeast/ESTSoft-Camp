@@ -1,0 +1,25 @@
+{
+  "greetings": [
+    {
+      "language": "en",
+      "morning": "Good morning!",
+      "afternoon": "Good afternoon!",
+      "evening": "Good evening!",
+      "welcome": "Welcome!"
+    },
+    {
+      "language": "ko",
+      "morning": "좋은 아침입니다!",
+      "afternoon": "좋은 오후입니다!",
+      "evening": "좋은 저녁입니다!",
+      "welcome": "환영합니다!"
+    },
+    {
+      "language": "ja",
+      "morning": "おはようございます！",
+      "afternoon": "こんにちは！",
+      "evening": "こんばんは！",
+      "welcome": "いらっしゃいませ！"
+    }
+  ]
+}
