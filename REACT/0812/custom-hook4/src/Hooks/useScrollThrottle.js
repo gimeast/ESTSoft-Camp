@@ -1,30 +1,34 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 
-export function useScrollThrottle(delay = 300) {
+export function useScrollThrottle() {
     const [isBottom, setIsBottom] = useState();
-    const isThrottle = useRef(false);
 
     useEffect(() => {
-        const handleScroll = () => {
-            if (!isThrottle.current) {
-                isThrottle.current = true;
+        function throttle(callback, delay) {
+            let timer = null;
 
-                setTimeout(() => {
-                    setIsBottom(
-                        window.innerHeight +
-                            document.documentElement.scrollTop +
-                            10 >=
-                            document.documentElement.offsetHeight
-                    );
-                    isThrottle.current = false;
-                }, delay);
-            }
+            return () => {
+                if (timer === null) {
+                    timer = setTimeout(() => {
+                        callback();
+                        timer = null;
+                    }, delay);
+                }
+            };
+        }
+
+        const handleScroll = () => {
+            setIsBottom(
+                window.innerHeight + document.documentElement.scrollTop + 10 >=
+                    document.documentElement.offsetHeight
+            );
         };
 
-        window.addEventListener("scroll", handleScroll);
+        const throttleHandler = throttle(handleScroll, 1000);
+        window.addEventListener("scroll", throttleHandler);
 
         return () => {
-            window.removeEventListener("scroll", handleScroll);
+            window.removeEventListener("scroll", throttleHandler);
         };
     }, []);
 
