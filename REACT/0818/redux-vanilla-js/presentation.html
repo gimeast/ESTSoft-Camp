@@ -1,0 +1,612 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Redux 발표 자료</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                color: #333;
+                overflow: hidden;
+            }
+
+            .presentation {
+                height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .slide {
+                background: white;
+                border-radius: 20px;
+                padding: 60px;
+                max-width: 1000px;
+                max-height: 700px;
+                box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+                display: none;
+                overflow-y: auto;
+                animation: slideIn 0.5s ease-out;
+            }
+
+            .slide.active {
+                display: block;
+            }
+
+            @keyframes slideIn {
+                from {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            .slide h1 {
+                font-size: 3rem;
+                color: #764ba2;
+                text-align: center;
+                margin-bottom: 30px;
+                background: linear-gradient(135deg, #667eea, #764ba2);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+            }
+
+            .slide h2 {
+                font-size: 2.5rem;
+                color: #667eea;
+                margin-bottom: 30px;
+                border-bottom: 3px solid #667eea;
+                padding-bottom: 10px;
+            }
+
+            .slide h3 {
+                font-size: 1.8rem;
+                color: #764ba2;
+                margin-bottom: 20px;
+            }
+
+            .slide p,
+            .slide li {
+                font-size: 1.2rem;
+                line-height: 1.6;
+                margin-bottom: 15px;
+            }
+
+            .slide ul {
+                margin-left: 20px;
+                margin-bottom: 20px;
+            }
+
+            .slide li {
+                margin-bottom: 10px;
+                list-style-type: none;
+                position: relative;
+                padding-left: 30px;
+            }
+
+            .slide li::before {
+                content: "→";
+                position: absolute;
+                left: 0;
+                color: #667eea;
+                font-weight: bold;
+                font-size: 1.3rem;
+            }
+
+            .code-block {
+                background: #f8f9fa;
+                border: 1px solid #e9ecef;
+                border-radius: 8px;
+                padding: 20px;
+                margin: 20px 0;
+                font-family: "Courier New", monospace;
+                font-size: 0.95rem;
+                line-height: 1.4;
+                overflow-x: auto;
+                box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+            }
+
+            .flow-diagram {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin: 30px 0;
+                background: #f8f9fa;
+                padding: 30px;
+                border-radius: 15px;
+                box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .flow-box {
+                background: linear-gradient(135deg, #667eea, #764ba2);
+                color: white;
+                padding: 20px;
+                border-radius: 10px;
+                text-align: center;
+                font-weight: bold;
+                min-width: 120px;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+                transition: transform 0.3s ease;
+            }
+
+            .flow-box:hover {
+                transform: translateY(-5px);
+            }
+
+            .flow-arrow {
+                font-size: 2rem;
+                color: #667eea;
+                font-weight: bold;
+            }
+
+            .controls {
+                position: fixed;
+                bottom: 30px;
+                left: 50%;
+                transform: translateX(-50%);
+                display: flex;
+                gap: 15px;
+                z-index: 1000;
+            }
+
+            .btn {
+                padding: 12px 25px;
+                background: linear-gradient(135deg, #667eea, #764ba2);
+                color: white;
+                border: none;
+                border-radius: 25px;
+                cursor: pointer;
+                font-size: 1rem;
+                font-weight: bold;
+                transition: all 0.3s ease;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            }
+
+            .btn:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            }
+
+            .btn:disabled {
+                opacity: 0.5;
+                cursor: not-allowed;
+                transform: none;
+            }
+
+            .slide-counter {
+                position: fixed;
+                top: 30px;
+                right: 30px;
+                background: rgba(255, 255, 255, 0.9);
+                padding: 10px 20px;
+                border-radius: 20px;
+                font-weight: bold;
+                color: #764ba2;
+                backdrop-filter: blur(10px);
+            }
+
+            .highlight {
+                background: linear-gradient(135deg, #667eea, #764ba2);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                font-weight: bold;
+            }
+
+            .concept-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+                margin: 30px 0;
+            }
+
+            .concept-card {
+                background: #f8f9fa;
+                padding: 25px;
+                border-radius: 15px;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                transition: transform 0.3s ease;
+            }
+
+            .concept-card:hover {
+                transform: translateY(-5px);
+            }
+
+            .concept-card h4 {
+                color: #667eea;
+                font-size: 1.4rem;
+                margin-bottom: 15px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="presentation">
+            <!-- Slide 1: Title -->
+            <div class="slide active">
+                <h1>Redux</h1>
+                <div style="text-align: center; margin: 50px 0">
+                    <p
+                        style="
+                            font-size: 2rem;
+                            color: #667eea;
+                            margin-bottom: 20px;
+                        "
+                    >
+                        예측 가능한 상태 관리 라이브러리
+                    </p>
+                    <p style="font-size: 1.5rem; color: #666">
+                        JavaScript 애플리케이션을 위한
+                    </p>
+                </div>
+                <div style="text-align: center; margin-top: 80px">
+                    <p style="font-size: 1.2rem; color: #888">발표자: 개발팀</p>
+                </div>
+            </div>
+
+            <!-- Slide 2: 목차 -->
+            <div class="slide">
+                <h2>목차</h2>
+                <ul style="font-size: 1.5rem; line-height: 2">
+                    <li>Redux란 무엇인가?</li>
+                    <li>Redux의 핵심 개념</li>
+                    <li>Redux의 3원칙</li>
+                    <li>데이터 플로우</li>
+                    <li>언제 사용하는가?</li>
+                    <li>실제 코드 예시</li>
+                    <li>장단점 및 결론</li>
+                </ul>
+            </div>
+
+            <!-- Slide 3: Redux란? -->
+            <div class="slide">
+                <h2>Redux란 무엇인가?</h2>
+                <p>
+                    <span class="highlight">Redux</span>는 JavaScript
+                    애플리케이션의
+                    <strong>예측 가능한 상태 컨테이너</strong>입니다.
+                </p>
+
+                <div class="concept-grid">
+                    <div class="concept-card">
+                        <h4>🎯 목적</h4>
+                        <p>복잡한 애플리케이션 상태를 체계적으로 관리</p>
+                    </div>
+                    <div class="concept-card">
+                        <h4>📱 사용처</h4>
+                        <p>React, Vue, Angular 등 모든 JS 프레임워크</p>
+                    </div>
+                    <div class="concept-card">
+                        <h4>🔄 방식</h4>
+                        <p>단방향 데이터 플로우로 상태 변경</p>
+                    </div>
+                    <div class="concept-card">
+                        <h4>🛡️ 안정성</h4>
+                        <p>예측 가능하고 디버깅이 쉬운 상태 관리</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 4: 핵심 개념 -->
+            <div class="slide">
+                <h2>Redux의 핵심 개념</h2>
+
+                <h3>🏪 Store</h3>
+                <p>
+                    애플리케이션의 <strong>전체 상태</strong>를 보관하는 단일
+                    저장소
+                </p>
+
+                <h3>⚡ Action</h3>
+                <p>
+                    상태 변경을 설명하는 <strong>평범한 JavaScript 객체</strong>
+                </p>
+
+                <h3>🔄 Reducer</h3>
+                <p>
+                    현재 상태와 액션을 받아
+                    <strong>새로운 상태를 반환</strong>하는 순수 함수
+                </p>
+
+                <h3>📤 Dispatch</h3>
+                <p>
+                    액션을 스토어에 전달하여
+                    <strong>상태 변경을 트리거</strong>하는 함수
+                </p>
+            </div>
+
+            <!-- Slide 5: Redux 3원칙 -->
+            <div class="slide">
+                <h2>Redux의 3가지 원칙</h2>
+
+                <div style="margin: 40px 0">
+                    <h3>1️⃣ 단일 진실 공급원 (Single Source of Truth)</h3>
+                    <p>
+                        애플리케이션의 모든 상태는
+                        <strong>하나의 스토어</strong> 내 객체 트리에 저장
+                    </p>
+                </div>
+
+                <div style="margin: 40px 0">
+                    <h3>2️⃣ 상태는 읽기 전용 (State is Read-Only)</h3>
+                    <p>
+                        상태를 변경하는 유일한 방법은
+                        <strong>액션을 발생</strong>시키는 것
+                    </p>
+                </div>
+
+                <div style="margin: 40px 0">
+                    <h3>
+                        3️⃣ 순수 함수로 변경 (Changes are Made with Pure
+                        Functions)
+                    </h3>
+                    <p>
+                        상태 변경은 <strong>순수 함수인 리듀서</strong>로만 수행
+                    </p>
+                </div>
+            </div>
+
+            <!-- Slide 6: 데이터 플로우 -->
+            <div class="slide">
+                <h2>Redux 데이터 플로우</h2>
+
+                <div class="flow-diagram">
+                    <div class="flow-box">UI Event</div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-box">Action</div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-box">Reducer</div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-box">Store</div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-box">UI Update</div>
+                </div>
+
+                <div style="margin-top: 40px">
+                    <h3>단방향 데이터 플로우의 장점</h3>
+                    <ul>
+                        <li>예측 가능한 상태 변경</li>
+                        <li>디버깅의 용이성</li>
+                        <li>시간 여행 디버깅 지원</li>
+                        <li>상태 변경 추적 가능</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Slide 7: 언제 사용하는가? -->
+            <div class="slide">
+                <h2>언제 Redux를 사용하는가?</h2>
+
+                <div class="concept-grid">
+                    <div class="concept-card">
+                        <h4>🤝 상태 공유</h4>
+                        <p>여러 컴포넌트가 같은 상태를 공유할 때</p>
+                    </div>
+                    <div class="concept-card">
+                        <h4>📈 복잡한 상태</h4>
+                        <p>상태 변경 로직이 복잡하고 예측하기 어려울 때</p>
+                    </div>
+                    <div class="concept-card">
+                        <h4>🔍 디버깅 필요</h4>
+                        <p>상태 변경 과정을 추적하고 디버깅해야 할 때</p>
+                    </div>
+                    <div class="concept-card">
+                        <h4>🏗️ 대규모 앱</h4>
+                        <p>중간 규모 이상의 애플리케이션 개발 시</p>
+                    </div>
+                </div>
+
+                <div
+                    style="
+                        margin-top: 30px;
+                        padding: 20px;
+                        background: #fff3cd;
+                        border-radius: 10px;
+                    "
+                >
+                    <p>
+                        <strong>💡 주의:</strong> 간단한 애플리케이션에서는
+                        오히려 복잡성을 증가시킬 수 있습니다.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Slide 8: 코드 예시 -->
+            <div class="slide">
+                <h2>실제 코드 예시</h2>
+
+                <h3>Action 정의</h3>
+                <div class="code-block">
+                    const INCREMENT = 'INCREMENT' const DECREMENT = 'DECREMENT'
+                    const increment = (amount) => ({ type: INCREMENT, payload:
+                    amount }) const decrement = () => ({ type: DECREMENT })
+                </div>
+
+                <h3>Reducer 작성</h3>
+                <div class="code-block">
+                    function counterReducer(state = { count: 0 }, action) {
+                    switch (action.type) { case INCREMENT: return { count:
+                    state.count + action.payload } case DECREMENT: return {
+                    count: state.count - 1 } default: return state } }
+                </div>
+            </div>
+
+            <!-- Slide 9: 스토어 사용 -->
+            <div class="slide">
+                <h2>Store 생성 및 사용</h2>
+
+                <h3>Store 생성</h3>
+                <div class="code-block">
+                    import { createStore } from 'redux' const store =
+                    createStore(counterReducer)
+                </div>
+
+                <h3>상태 사용</h3>
+                <div class="code-block">
+                    // 현재 상태 조회 console.log(store.getState()) // { count:
+                    0 } // 상태 변경 store.dispatch(increment(5))
+                    console.log(store.getState()) // { count: 5 }
+                    store.dispatch(decrement()) console.log(store.getState()) //
+                    { count: 4 } // 상태 변경 구독 store.subscribe(() => {
+                    console.log('상태가 변경되었습니다:', store.getState()) })
+                </div>
+            </div>
+
+            <!-- Slide 10: 장단점 -->
+            <div class="slide">
+                <h2>Redux의 장단점</h2>
+
+                <div class="concept-grid">
+                    <div class="concept-card" style="background: #d4edda">
+                        <h4>✅ 장점</h4>
+                        <ul style="margin-left: 0">
+                            <li>예측 가능한 상태 관리</li>
+                            <li>중앙 집중식 상태 저장</li>
+                            <li>시간 여행 디버깅</li>
+                            <li>핫 리로딩 지원</li>
+                            <li>미들웨어 생태계</li>
+                            <li>테스트 용이성</li>
+                        </ul>
+                    </div>
+                    <div class="concept-card" style="background: #f8d7da">
+                        <h4>❌ 단점</h4>
+                        <ul style="margin-left: 0">
+                            <li>학습 곡선</li>
+                            <li>보일러플레이트 코드</li>
+                            <li>작은 앱에는 과도함</li>
+                            <li>불변성 유지 필요</li>
+                            <li>추가적인 의존성</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div
+                    style="
+                        margin-top: 30px;
+                        padding: 20px;
+                        background: #d1ecf1;
+                        border-radius: 10px;
+                    "
+                >
+                    <p>
+                        <strong>💡 팁:</strong> Redux Toolkit(RTK)을 사용하면
+                        많은 단점을 해결할 수 있습니다!
+                    </p>
+                </div>
+            </div>
+
+            <!-- Slide 11: 결론 -->
+            <div class="slide">
+                <h2>결론</h2>
+
+                <div style="text-align: center; margin: 50px 0">
+                    <p style="font-size: 1.5rem; margin-bottom: 30px">
+                        Redux는
+                        <span class="highlight">복잡한 상태 관리</span>를 위한
+                        강력한 도구입니다.
+                    </p>
+
+                    <div class="concept-grid">
+                        <div class="concept-card">
+                            <h4>🎯 적절한 사용</h4>
+                            <p>프로젝트 규모와 복잡성을 고려한 선택</p>
+                        </div>
+                        <div class="concept-card">
+                            <h4>📚 학습 투자</h4>
+                            <p>초기 학습 비용 대비 장기적 이익</p>
+                        </div>
+                        <div class="concept-card">
+                            <h4>🛠️ 생태계</h4>
+                            <p>Redux Toolkit으로 개발 경험 향상</p>
+                        </div>
+                        <div class="concept-card">
+                            <h4>🔄 대안 고려</h4>
+                            <p>
+                                Zustand, Recoil 등 다른 상태 관리 라이브러리와
+                                비교
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 50px">
+                    <h3 style="color: #667eea">감사합니다! 🙏</h3>
+                    <p style="font-size: 1.2rem; color: #888">
+                        질문이 있으시면 언제든지 말씀해 주세요.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide-counter">
+            <span id="current-slide">1</span> /
+            <span id="total-slides">11</span>
+        </div>
+
+        <div class="controls">
+            <button class="btn" id="prev-btn" onclick="previousSlide()">
+                ◀ 이전
+            </button>
+            <button class="btn" id="next-btn" onclick="nextSlide()">
+                다음 ▶
+            </button>
+        </div>
+
+        <script>
+            let currentSlide = 0;
+            const slides = document.querySelectorAll(".slide");
+            const totalSlides = slides.length;
+
+            document.getElementById("total-slides").textContent = totalSlides;
+
+            function showSlide(n) {
+                slides.forEach((slide) => slide.classList.remove("active"));
+                slides[n].classList.add("active");
+
+                document.getElementById("current-slide").textContent = n + 1;
+                document.getElementById("prev-btn").disabled = n === 0;
+                document.getElementById("next-btn").disabled =
+                    n === totalSlides - 1;
+            }
+
+            function nextSlide() {
+                if (currentSlide < totalSlides - 1) {
+                    currentSlide++;
+                    showSlide(currentSlide);
+                }
+            }
+
+            function previousSlide() {
+                if (currentSlide > 0) {
+                    currentSlide--;
+                    showSlide(currentSlide);
+                }
+            }
+
+            // 키보드 네비게이션
+            document.addEventListener("keydown", function (e) {
+                if (e.key === "ArrowRight" || e.key === " ") {
+                    e.preventDefault();
+                    nextSlide();
+                } else if (e.key === "ArrowLeft") {
+                    e.preventDefault();
+                    previousSlide();
+                }
+            });
+
+            // 초기화
+            showSlide(0);
+        </script>
+    </body>
+</html>
