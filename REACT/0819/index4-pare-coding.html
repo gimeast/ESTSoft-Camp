@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Redux 페어코딩</title>
+    </head>
+
+    <body>
+        <h1>Redux Airbnb 필터링</h1>
+
+        <div>
+            <h3>편의시설 필터:</h3>
+            <button class="filter-btn" onclick="toggleFilter('무료 주차 공간')">
+                무료 주차 공간
+            </button>
+            <button class="filter-btn" onclick="toggleFilter('대형 욕조')">
+                대형 욕조
+            </button>
+            <button class="filter-btn" onclick="toggleFilter('바베큐 그릴')">
+                바베큐 그릴
+            </button>
+            <button class="filter-btn" onclick="toggleFilter('게스트용 별채')">
+                게스트용 별채
+            </button>
+            <button class="filter-btn" onclick="toggleFilter('수영장')">
+                수영장
+            </button>
+            <button class="filter-btn" onclick="toggleFilter('주방')">
+                주방
+            </button>
+            <button class="filter-btn" onclick="toggleFilter('TV')">TV</button>
+        </div>
+
+        <div id="resultsInfo"></div>
+
+        <div id="listingsContainer">
+            <!-- 숙소 목록이 여기에 렌더링 -->
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.2.0/redux.js"></script>
+        <script>
+            const listings = [
+                {
+                    title: "킹 고우리 캐슬",
+                    location: "제주도",
+                    price: "85,000,000원",
+                    options: [
+                        "무료 주차 공간",
+                        "주방",
+                        "TV",
+                        "수영장",
+                        "바베큐 그릴",
+                        "게스트용 별채",
+                        "주방",
+                    ],
+                },
+                {
+                    title: "경현이네 ",
+                    location: "파주시",
+                    price: "80,000원",
+                    options: ["무료주차공간", "주방", "TV"],
+                },
+                {
+                    title: "바다뷰 펜션",
+                    location: "해운대",
+                    price: "120,000원",
+                    options: ["바베큐 그릴", "주방", "무료 주차 공간"],
+                },
+                {
+                    title: "산속 별장",
+                    location: "평창",
+                    price: "95,000원",
+                    options: [
+                        "바베큐 그릴",
+                        "게스트용 별채",
+                        "무료 주차 공간",
+                        "TV",
+                    ],
+                },
+                {
+                    title: "모던 스튜디오",
+                    location: "홍대",
+                    price: "65,000원",
+                    options: ["주방", "TV"],
+                },
+                {
+                    title: "리조트 빌라",
+                    location: "제주도",
+                    price: "180,000원",
+                    options: [
+                        "수영장",
+                        "대형 욕조",
+                        "바베큐 그릴",
+                        "무료 주차 공간",
+                        "주방",
+                        "TV",
+                    ],
+                },
+            ];
+
+            // 5. initialState 생성
+            const initialState = {
+                listings: listings,
+                activeFilters: [],
+                filteredListings: listings,
+            };
+
+            // 4. reducer 함수
+            function reducer(state = initialState, action) {
+                // switch문 작성 => 액션 타입 구분해서 실행하기 위해
+                // 보일러플레이트 => case 1가지
+                // amenity에 filter 모두 포함돼았어서, 타입 구분이 필요 없다
+                // filter 종류 늘리기로!!
+
+                // if(state === undefined) 대신 state = initialState
+                // return state;
+                switch (action.type) {
+                    case "TOGGLE_FILTER":
+                        // 저희는 삼항연산자 쓰지 말고 작성하시죠
+
+                        // newFilters
+                        let newFilters = [
+                            ...state.activeFilters,
+                            action.filter,
+                        ];
+
+                        if (state.activeFilters.includes(action.filter)) {
+                            newFilters = state.activeFilters.filter(
+                                (f) => f !== action.filter
+                            );
+                        }
+
+                        // filteredListings
+                        let filteredListings = state.listings.filter(
+                            (listing) =>
+                                newFilters.every((filter) =>
+                                    listing.options.includes(filter)
+                                )
+                        );
+
+                        if (newFilters.length === 0) {
+                            filteredListings = state.listings;
+                        }
+
+                        return {
+                            ...state,
+                            activeFilters: newFilters,
+                            filteredListings: filteredListings,
+                        };
+
+                    default:
+                        return state;
+                }
+            }
+
+            // 3. store 선언
+            const store = Redux.createStore(
+                reducer,
+                window.__REDUX_DEVTOOLS_EXTENSION__ &&
+                    window.__REDUX_DEVTOOLS_EXTENSION__()
+            );
+
+            // 액션 함수 만들면 좋지만, 생략
+            //const toggleAction = (toggle) => {
+            //  return {
+            //   type: 'TOGGLE_FILTER'
+            //    filter: filter
+            // }
+            // }
+
+            // 1. 토글함수 생성
+            function toggleFilter(filter) {
+                // 2. dispatch
+                store.dispatch({ type: "TOGGLE_FILTER", filter: filter });
+            }
+
+            // 함수 로직 이렇게 짜면 되나요???
+
+            // 사용자가 필터 클릭 -> 필터에 클릭 반영
+            // active filter에 반영(필터)
+            // filtered list에도 반영 (배열 길이)
+            // ...
+        </script>
+    </body>
+</html>

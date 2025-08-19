@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Title</title>
+        <style>
+            .box {
+                width: 200px;
+                height: 100px;
+                border: 1px solid black;
+            }
+
+            .rounded {
+                border-radius: 10px;
+            }
+
+            .circle {
+                border-radius: 50%;
+            }
+            .rect {
+                border-radius: 0;
+            }
+
+            .red {
+                border: 1px solid red;
+            }
+            .green {
+                border: 1px solid green;
+            }
+            .blue {
+                border: 1px solid blue;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <input id="textInput" type="text" />
+            <button id="btn-click-me">click Me</button>
+            <button onclick="handleShapeAction('rounded')">rounded</button>
+            <button onclick="handleShapeAction('circle')">circle</button>
+            <button onclick="handleShapeAction('rect')">rect</button>
+            <button onclick="handleColorAction('red')">red</button>
+            <button onclick="handleColorAction('green')">green</button>
+            <button onclick="handleColorAction('blue')">blue</button>
+        </div>
+        <div class="wrap">
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.2.0/redux.js"></script>
+        <script>
+            const $textInput = document.getElementById("textInput");
+            const $div = document.querySelectorAll(".wrap div");
+            const $clickMe = document.getElementById("btn-click-me");
+
+            const initialState = {
+                input: "",
+                shape: "rect",
+                color: "white",
+            };
+
+            function reducer(state = initialState, action) {
+                switch (action.type) {
+                    case "INPUT":
+                        return { ...state, input: action.input };
+                    case "SHAPE":
+                        return { ...state, shape: action.shape };
+                    case "COLOR":
+                        return { ...state, color: action.color };
+                    default:
+                        return state;
+                }
+            }
+
+            const store = Redux.createStore(
+                reducer,
+                window.__REDUX_DEVTOOLS_EXTENSION__ &&
+                    window.__REDUX_DEVTOOLS_EXTENSION__()
+            );
+
+            store.subscribe(component);
+
+            function component() {
+                const currentState = store.getState();
+
+                $div.forEach((div) => {
+                    div.className = `box ${currentState.shape} ${currentState.color}`;
+                    div.textContent = `${currentState.input}`;
+                });
+            }
+
+            function handleInputAction(input) {
+                const action = inputActionCreator(input);
+                store.dispatch(action);
+            }
+
+            function handleShapeAction(shape) {
+                const action = shapeActionCreator(shape);
+                store.dispatch(action);
+            }
+
+            function handleColorAction(color) {
+                const action = colorActionCreator(color);
+                store.dispatch(action);
+            }
+
+            function inputActionCreator(input) {
+                return { type: "INPUT", input };
+            }
+
+            function shapeActionCreator(shape) {
+                return { type: "SHAPE", shape };
+            }
+
+            function colorActionCreator(color) {
+                return { type: "COLOR", color };
+            }
+
+            $clickMe.addEventListener("click", () => {
+                handleInputAction($textInput.value);
+            });
+        </script>
+    </body>
+</html>
