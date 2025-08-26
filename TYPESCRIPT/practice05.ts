@@ -15,7 +15,7 @@ interface CustomStorage<K, V> {
 class CustomStorageContainer<K, V> implements CustomStorage<K, V> {
     map = new Map<K, V>();
 
-    getItem(key: K): any {
+    getItem(key: K): V | undefined {
         return this.map.get(key);
     }
 
