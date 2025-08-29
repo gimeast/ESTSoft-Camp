@@ -8,7 +8,6 @@ import { useAuthContext } from "../../hooks/useAuthContext.js";
 const Header = () => {
     const { logout } = useLogout();
     const { user } = useAuthContext();
-    console.log(user);
 
     return (
         <header>
@@ -24,15 +23,30 @@ const Header = () => {
                 </h1>
                 <div>
                     {!user && (
-                        <Link to="/signup" className="btn-signup">
-                            회원가입
-                        </Link>
+                        <>
+                            <Link to="/login" className="btn-login">
+                                로그인
+                            </Link>
+                            <Link to="/signup" className="btn-join">
+                                회원가입
+                            </Link>
+                        </>
                     )}
 
                     {user && (
-                        <Link to="/" className="btn-logout" onClick={logout}>
-                            로그아웃
-                        </Link>
+                        <>
+                            <p className="hello">
+                                환영합니다 <strong>{user.displayName}</strong>
+                                님!
+                            </p>
+                            <Link
+                                to="/"
+                                className="btn-logout"
+                                onClick={logout}
+                            >
+                                로그아웃
+                            </Link>
+                        </>
                     )}
                 </div>
             </div>
